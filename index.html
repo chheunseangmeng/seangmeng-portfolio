@@ -1,0 +1,1063 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Seangmeng Chheun - Web Developer</title>
+    <link rel="stylesheet" href="/src/styles/main.css" />
+  </head>
+  <body>
+    <!-- Dark Mode Stars -->
+    <div class="stars-container"></div>
+    <div class="moon"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+      <div class="nav-container">
+        <div class="nav-brand">
+          <span class="brand-text">'Seangmeng</span>
+        </div>
+        <div class="nav-menu">
+          <a href="#home" class="nav-link" data-en="Home" data-km="ទំព័រដើម"
+            >Home</a
+          >
+          <a href="#about" class="nav-link" data-en="About" data-km="អំពីខ្ញុំ"
+            >About</a
+          >
+          <a href="#skills" class="nav-link" data-en="Skills" data-km="ជំនាញ"
+            >Skills</a
+          >
+          <a
+            href="#experience"
+            class="nav-link"
+            data-en="Experience"
+            data-km="បទពិសោធន៍"
+            >Experience</a
+          >
+          <a
+            href="#projects"
+            class="nav-link"
+            data-en="Projects"
+            data-km="គម្រោង"
+            >Projects</a
+          >
+          <a
+            href="#contact"
+            class="nav-link"
+            data-en="Contact"
+            data-km="ទំនាក់ទំនង"
+            >Contact</a
+          >
+        </div>
+        <div class="nav-controls">
+          <button
+            class="theme-toggle"
+            id="themeToggle"
+            aria-label="Toggle theme"
+          >
+            <span class="sun-icon">☀️</span>
+            <span class="moon-icon">🌙</span>
+          </button>
+          <button class="lang-toggle" id="langToggle">
+            <span class="lang-text">EN</span>
+          </button>
+          <button class="mobile-menu-toggle" id="mobileMenuToggle">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+      <div class="hero-content">
+        <div class="hero-text">
+          <h1 class="hero-title">
+            <span
+              class="name-highlight"
+              data-en="Chheun Seangmeng"
+              data-km="ឈឺន សៀងម៉េង"
+              >Chheun 'Seangmeng</span
+            >
+          </h1>
+          <h2
+            class="hero-subtitle"
+            data-en="Web Developer "
+            data-km="អ្នកអភិវឌ្ឍន៍គេហទំព័រ "
+          >
+            Web Developer
+          </h2>
+          <p
+            class="hero-description"
+            data-en="Passionate Web Developer Focused on Crafting Beautiful, Functional Websites That Provide Great User Experiences. I Turn Ideas Into Interactive Digital Solutions"
+            data-km="អ្នកបង្កើតគេហទំព័រដែលមានចំណង់ចំណូលចិត្តផ្តោតលើការបង្កើតគេហទំព័រដ៏ស្រស់ស្អាត និងមុខងារដែលផ្តល់នូវបទពិសោធន៍អ្នកប្រើប្រាស់ដ៏អស្ចារ្យ។ ខ្ញុំបង្វែរគំនិតទៅជាដំណោះស្រាយឌីជីថលអន្តរកម្ម"
+          >
+            "Passionate Web Developer Focused on Crafting Beautiful, Functional
+            Websites That Provide Great User Experiences. I Turn Ideas Into
+            Interactive Digital Solutions"
+          </p>
+          <div class="hero-buttons">
+            <a
+              href="#contact"
+              class="btn btn-primary"
+              data-en="Get In Touch"
+              data-km="ទាក់ទង"
+              >Get In Touch</a
+            >
+            <a
+              href="#projects"
+              class="btn btn-secondary"
+              data-en="View Projects"
+              data-km="មើលគម្រោង"
+              >View Projects</a
+            >
+          </div>
+        </div>
+        <div class="hero-image">
+          <div class="profile-card">
+            <div class="profile-image-wrapper">
+              <div class="profile-image">
+                <img
+                  src="./src/assets/pf.png"
+                  alt="Profile"
+                  class="profile-pic"
+                />
+              </div>
+              <!-- Tech icons behind profile image -->
+              <div class="tech-icons">
+                <img
+                  src="https://img.icons8.com/?size=128&id=hUvxmdu7Rloj&format=png"
+                  alt="Laravel"
+                  class="tech-icon laravel"
+                />
+                <img
+                  src="https://img.icons8.com/?size=160&id=eETV3RNHVrWA&format=png"
+                  alt="Vue.js"
+                  class="tech-icon vue"
+                />
+                <img
+                  src="https://img.icons8.com/?size=96&id=tGvHBPJaKqEd&format=gif&color=f7f7f7"
+                  alt="JavaScript"
+                  class="tech-icon js"
+                />
+                <img
+                  src="https://img.icons8.com/?size=96&id=laYYF3dV0Iew&format=png"
+                  alt="SQL Server"
+                  class="tech-icon sql"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section about-section">
+      <div class="container">
+        <h2 class="section-title" data-en="About Me" data-km="អំពីខ្ញុំ">
+          About Me
+        </h2>
+        <div class="about-content">
+          <div class="about-text">
+            <p
+              data-en="My name is Chheun Seangmeng, a dedicated Computer Science student at Passerelles numériques Cambodia (PNC), specializing in Web Development. Passionate about coding and problem solving, I am committed to developing innovative digital solutions while enhancing my technical and professional skills."
+              data-km="ខ្ញុំឈ្មោះ ឈឺន សៀងម៉េង សិស្សវិទ្យាសាស្ត្រកុំព្យូទ័រនៅ Passerelles numériques Cambodia (PNC) ជំនាញខាងអភិវឌ្ឍន៍គេហទំព័រ។ ខ្ញុំស្រឡាញ់ការសរសេរកូដ និងការដោះស្រាយបញ្ហា ហើយប្តេជ្ញាចិត្តអភិវឌ្ឍដំណោះស្រាយឌីជីថលថ្មីៗ ខណៈពេលកំពុងបង្កើនជំនាញបច្ចេកទេស និងវិជ្ជាជីវៈរបស់ខ្ញុំ។"
+            >
+              My name is Chheun Seangmeng, a dedicated Computer Science student
+              at Passerelles numériques Cambodia (PNC), specializing in Web
+              Development. Passionate about coding and problem solving, I am
+              committed to developing innovative digital solutions while
+              enhancing my technical and professional skills.
+            </p>
+            <div class="personal-info">
+              <div class="info-item">
+                <span
+                  class="info-label"
+                  data-en="Full Name:"
+                  data-km="ឈ្មោះពេញ:"
+                  >Full Name:</span
+                >
+                <span class="info-value">Chheun Seangmeng</span>
+              </div>
+              <div class="info-item">
+                <span
+                  class="info-label"
+                  data-en="Date of Birth:"
+                  data-km="ថ្ងៃខែឆ្នាំកំណើត:"
+                  >Date of Birth:</span
+                >
+                <span class="info-value">June 19, 2006</span>
+              </div>
+              <div class="info-item">
+                <span class="info-label" data-en="Location:" data-km="ទីតាំង:"
+                  >Location:</span
+                >
+                <span class="info-value">Phnom Penh, Cambodia</span>
+              </div>
+              <div class="info-item">
+                <span
+                  class="info-label"
+                  data-en="Education:"
+                  data-km="ការអប់រំ:"
+                  >Education:</span
+                >
+                <span class="info-value">Passerelles Numériques Cambodia</span>
+              </div>
+            </div>
+          </div>
+          <div class="about-stats">
+            <div class="stat-card">
+              <div class="stat-number">2+</div>
+              <div
+                class="stat-label"
+                data-en="Years Learning"
+                data-km="ឆ្នាំនៃការរៀនសូត្រនៅសកល"
+              >
+                Years Learning
+              </div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-number">6+</div>
+              <div
+                class="stat-label"
+                data-en="Projects Completed"
+                data-km="គម្រោងបានបញ្ចប់"
+              >
+                Projects Completed
+              </div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-number">15+</div>
+              <div
+                class="stat-label"
+                data-en="Technologies"
+                data-km="បច្ចេកវិទ្យា"
+              >
+                Technologies
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section skills-section">
+      <div class="container">
+        <h2
+          class="section-title"
+          data-en="Skills & Technologies"
+          data-km="ជំនាញ និងបច្ចេកវិទ្យា"
+        >
+          Skills & Technologies
+        </h2>
+
+        <div class="skills-category">
+          <h3
+            class="category-title"
+            data-en="Frontend Development"
+            data-km="ការអភិវឌ្ឍន៍ Frontend"
+          >
+            Frontend Development
+          </h3>
+          <div class="skills-grid">
+            <div class="skill-card">
+              <div class="skill-icon">
+                <img
+                  src="https://img.icons8.com/?size=160&id=5pu47piHKg1I&format=png"
+                  alt=""
+                />
+              </div>
+              <div class="skill-name">Flutter</div>
+              <div class="skill-bar">
+                <div class="skill-progress" style="--progress: 40%"></div>
+              </div>
+            </div>
+            <div class="skill-card">
+              <div class="skill-icon">
+                <img
+                  src="https://img.icons8.com/?size=160&id=eETV3RNHVrWA&format=png"
+                  alt=""
+                />
+              </div>
+              <div class="skill-name">Vue.js</div>
+              <div class="skill-bar">
+                <div class="skill-progress" style="--progress: 70%"></div>
+              </div>
+            </div>
+            <div class="skill-card">
+              <div class="skill-icon">
+                <img
+                  src="https://img.icons8.com/?size=96&id=tGvHBPJaKqEd&format=gif&color=f7f7f7"
+                  alt=""
+                />
+              </div>
+              <div class="skill-name">JavaScript</div>
+              <div class="skill-bar">
+                <div class="skill-progress" style="--progress: 70%"></div>
+              </div>
+            </div>
+            <div class="skill-card">
+              <div class="skill-icon">
+                <img
+                  src="https://cdn-icons-png.flaticon.com/128/1051/1051277.png"
+                  alt=""
+                />
+                <img
+                  src="https://cdn-icons-png.flaticon.com/128/732/732190.png"
+                  alt=""
+                />
+                <img
+                  src="https://cdn-icons-png.flaticon.com/128/919/919831.png"
+                  alt=""
+                />
+              </div>
+              <div class="skill-name">HTML / CSS</div>
+              <div class="skill-bar">
+                <div class="skill-progress" style="--progress: 85%"></div>
+              </div>
+            </div>
+            <div class="skill-card">
+              <div class="skill-icon">
+                <img
+                  src="https://img.icons8.com/?size=128&id=FnnFuAIw4e8j&format=png"
+                  alt=""
+                />
+              </div>
+              <div class="skill-name">Tailwind CSS</div>
+              <div class="skill-bar">
+                <div class="skill-progress" style="--progress: 80%"></div>
+              </div>
+            </div>
+            <div class="skill-card">
+              <div class="skill-icon">
+                <img
+                  src="https://img.icons8.com/?size=96&id=EzPCiQUqWWEa&format=png"
+                  alt=""
+                />
+              </div>
+              <div class="skill-name">Bootstrap</div>
+              <div class="skill-bar">
+                <div class="skill-progress" style="--progress: 85%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="skills-category">
+          <h3
+            class="category-title"
+            data-en="Backend Development"
+            data-km="ការអភិវឌ្ឍន៍ Backend"
+          >
+            Backend Development
+          </h3>
+          <div class="skills-grid">
+            <div class="skill-card">
+              <div class="skill-icon">
+                <img
+                  src="https://cdn-icons-png.flaticon.com/128/5968/5968332.png"
+                  alt=""
+                />
+              </div>
+              <div class="skill-name">PHP</div>
+              <div class="skill-bar">
+                <div class="skill-progress" style="--progress: 40%"></div>
+              </div>
+            </div>
+            <div class="skill-card">
+              <div class="skill-icon">
+                <img
+                  src="https://img.icons8.com/?size=128&id=hUvxmdu7Rloj&format=png"
+                  alt=""
+                />
+              </div>
+              <div class="skill-name">Laravel</div>
+              <div class="skill-bar">
+                <div class="skill-progress" style="--progress: 60%"></div>
+              </div>
+            </div>
+            <div class="skill-card">
+              <div class="skill-icon">
+                <img
+                  src="https://img.icons8.com/?size=96&id=hsPbhkOH4FMe&format=png"
+                  alt=""
+                />
+              </div>
+              <div class="skill-name">Node.js</div>
+              <div class="skill-bar">
+                <div class="skill-progress" style="--progress: 40%"></div>
+              </div>
+            </div>
+            <div class="skill-card">
+              <div class="skill-icon">
+                <img
+                  src="https://img.icons8.com/?size=160&id=QeIg9siFKGgp&format=png"
+                  alt=""
+                />
+              </div>
+              <div class="skill-name">MySQL</div>
+              <div class="skill-bar">
+                <div class="skill-progress" style="--progress: 75%"></div>
+              </div>
+            </div>
+            <div class="skill-card">
+              <div class="skill-icon">
+                <img
+                  src="https://img.icons8.com/?size=96&id=laYYF3dV0Iew&format=png"
+                  alt=""
+                />
+              </div>
+              <div class="skill-name">SQL Server</div>
+              <div class="skill-bar">
+                <div class="skill-progress" style="--progress: 80%"></div>
+              </div>
+            </div>
+            <div class="skill-card">
+              <div class="skill-icon">
+                <img
+                  src="https://img.icons8.com/?size=96&id=Rc0Xn5AtE8kX&format=gif&color=f7f7f7"
+                  alt=""
+                />
+              </div>
+              <div class="skill-name">Python</div>
+              <div class="skill-bar">
+                <div class="skill-progress" style="--progress: 20%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="skills-category">
+          <h3
+            class="category-title"
+            data-en="Tools & Others"
+            data-km="ឧបករណ៍ និងផ្សេងៗ"
+          >
+            Tools & Others
+          </h3>
+          <div class="tools-grid">
+            <div class="tool-badge">OOP</div>
+            <div class="tool-badge">Git/GitHub</div>
+            <div class="tool-badge">VS Code</div>
+            <div class="tool-badge">Figma</div>
+            <div class="tool-badge">Jira</div>
+            <div class="tool-badge">Power BI</div>
+            <div class="tool-badge">AWS</div>
+            <div class="tool-badge">Linux</div>
+            <div class="tool-badge">Postman</div>
+            <div class="tool-badge">Flutter</div>
+            <div class="tool-badge">TypeScript</div>
+            <div class="tool-badge">SSMS</div>
+            <div class="tool-badge">SSRS</div>
+            <div class="tool-badge">SSIS</div>
+            <div class="tool-badge">AI prompt</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="section experience-section">
+      <div class="container">
+        <h2
+          class="section-title"
+          data-en="Working Experiences"
+          data-km="បទពិសោធន៍ការងារ"
+        >
+          Working Experiences
+        </h2>
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-marker"></div>
+            <div class="timeline-content">
+              <div class="timeline-date">Sep - Dec 2025</div>
+              <h3
+                class="timeline-title"
+                data-en="Data Engineer Intern"
+                data-km="កម្មសិក្សា - វិស្វករទិន្នន័យ"
+              >
+                Data Engineer Intern
+              </h3>
+              <div class="timeline-company">
+                Dai ichi Life Insurance Cambodia
+              </div>
+              <p
+                class="timeline-description"
+                data-en="Responded to queries and extracted data from data warehouse using SQL Server, SSMS, SSRS, SSIS, and Python."
+                data-km="ឆ្លើយតបនឹងសំណួរ និងស្រង់យកទិន្នន័យពីឃ្លាំងទិន្នន័យដោយប្រើ SQL Server, SSMS, SSRS, SSIS និង Python។"
+              >
+                Responded to queries and extracted data from data warehouse
+                using SQL Server, SSMS, SSRS, SSIS, and Python.
+              </p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-marker"></div>
+            <div class="timeline-content">
+              <div class="timeline-date">Jul - Aug 2025</div>
+              <h3
+                class="timeline-title"
+                data-en="FullStack Developer"
+                data-km="អ្នកអភិវឌ្ឍន៍ FullStack"
+              >
+                FullStack Developer
+              </h3>
+              <div class="timeline-company">
+                QR Code Menu Application - School Project
+              </div>
+              <p
+                class="timeline-description"
+                data-en="Built mobile application using Flutter, Laravel, and MySQL. Managed agile workflows with JIRA & GitHub."
+                data-km="បង្កើតកម្មវិធីទូរសព្ទដោយប្រើ Flutter, Laravel និង MySQL។ គ្រប់គ្រងលំហូរការងារ agile ជាមួយ JIRA និង GitHub។"
+              >
+                Built mobile application using Flutter, Laravel, and MySQL.
+                Managed agile workflows with JIRA & GitHub.
+              </p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-marker"></div>
+            <div class="timeline-content">
+              <div class="timeline-date">Feb - May 2025</div>
+              <h3
+                class="timeline-title"
+                data-en="Scrum Master"
+                data-km="Scrum Master"
+              >
+                Scrum Master
+              </h3>
+              <div class="timeline-company">
+                Stock Inventory Management - School Project
+              </div>
+              <p
+                class="timeline-description"
+                data-en="Led a team of five to design and implement a Stock Inventory Management system using HTML, CSS, Bootstrap, JavaScript, PHP, and MySQL."
+                data-km="ដឹកនាំក្រុមចំនួនប្រាំនាក់ក្នុងការរចនា និងអនុវត្តប្រព័ន្ធគ្រប់គ្រងសារពើភ័ណ្ឌដោយប្រើ HTML, CSS, Bootstrap, JavaScript, PHP និង MySQL។"
+              >
+                Led a team of five to design and implement a Stock Inventory
+                Management system using HTML, CSS, Bootstrap, JavaScript, PHP,
+                and MySQL.
+              </p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-marker"></div>
+            <div class="timeline-content">
+              <div class="timeline-date">Jan 2025</div>
+              <h3
+                class="timeline-title"
+                data-en="Team Leader"
+                data-km="ប្រធានក្រុម"
+              >
+                Team Leader
+              </h3>
+              <div class="timeline-company">
+                Expense Tracker App - School Project
+              </div>
+              <p
+                class="timeline-description"
+                data-en="Led development of an Expense Tracker App with clean UI using HTML, CSS, and JavaScript."
+                data-km="ដឹកនាំការអភិវឌ្ឍកម្មវិធីតាមដានចំណាយជាមួយ UI ស្អាតដោយប្រើ HTML, CSS និង JavaScript។"
+              >
+                Led development of an Expense Tracker App with clean UI using
+                HTML, CSS, and JavaScript.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section projects-section">
+      <div class="container">
+        <h2
+          class="section-title"
+          data-en="Featured Projects"
+          data-km="គម្រោងសំខាន់ៗ"
+        >
+          Featured Projects
+        </h2>
+        <div class="projects-grid">
+          <div class="project-card">
+            <div class="project-image">
+              <img src="./src/assets/poster.png" alt="" />
+              <div class="project-overlay">
+                <div class="project-links">
+                  <button
+                    class="project-link"
+                    data-en="View Details"
+                    data-km="មើលព័ត៌មានលម្អិត"
+                  >
+                    View Details
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="project-info">
+              <h3
+                class="project-title"
+                data-en="QR Code Menu App"
+                data-km="កម្មវិធីមឺនុយ QR Code"
+              >
+                QR Code Menu App
+              </h3>
+              <p
+                class="project-description"
+                data-en="Digital restaurant menu system built with Flutter and Laravel"
+                data-km="ប្រព័ន្ធមឺនុយភោជនីយដ្ឋានឌីជីថលដែលបង្កើតដោយ Flutter និង Laravel"
+              >
+                Digital restaurant menu system built with Flutter and Laravel
+              </p>
+              <div class="project-tags">
+                <span class="tag">Flutter</span>
+                <span class="tag">Laravel</span>
+                <span class="tag">MySQL</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div class="project-image">
+              <img
+                src="./src/assets/vc-png.PNG"
+                alt=""
+                style="height: 200px; width: 105%"
+              />
+              <div class="project-overlay">
+                <div class="project-links">
+                  <button
+                    class="project-link"
+                    data-en="View Details"
+                    data-km="មើលព័ត៌មានលម្អិត"
+                  >
+                    View Details
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="project-info">
+              <h3
+                class="project-title"
+                data-en="Stock Inventory System"
+                data-km="ប្រព័ន្ធគ្រប់គ្រងសារពើភ័ណ្ឌ"
+              >
+                Stock Inventory System
+              </h3>
+              <p
+                class="project-description"
+                data-en="Comprehensive inventory management solution for businesses"
+                data-km="ដំណោះស្រាយគ្រប់គ្រងសារពើភ័ណ្ឌពេញលេញសម្រាប់អាជីវកម្ម"
+              >
+                Comprehensive inventory management solution for businesses
+              </p>
+              <div class="project-tags">
+                <span class="tag">PHP</span>
+                <span class="tag">JS</span>
+                <span class="tag">MySQL</span>
+                <span class="tag">Bootstrap</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div class="project-image">
+              <img src="./src/assets/python-algorithm.PNG" alt="" />
+              <div class="project-overlay">
+                <div class="project-links">
+                  <button
+                    class="project-link"
+                    data-en="View Details"
+                    data-km="មើលព័ត៌មានលម្អិត"
+                  >
+                    View Details
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="project-info">
+              <h3
+                class="project-title"
+                data-en="Voice-Controlled Music"
+                data-km="កម្មវិធីចាក់តន្ត្រីដោយសំឡេង"
+              >
+                Voice-Controlled Music
+              </h3>
+              <p
+                class="project-description"
+                data-en="Python-based music player with speech recognition control"
+                data-km="កម្មវិធីចាក់តន្ត្រីដោយ Python ជាមួយការទទួលស្គាល់សំឡេង"
+              >
+                Python-based music player with speech recognition control
+              </p>
+              <div class="project-tags">
+                <span class="tag">Python</span>
+                <span class="tag">Tkinter</span>
+                <span class="tag">AI</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div class="project-image">
+              <img
+                src="./src/assets/java-script.PNG"
+                alt=""
+                style="height: 200px"
+              />
+              <div class="project-overlay">
+                <div class="project-links">
+                  <a
+                    class="project-link"
+                    data-en="View Details"
+                    data-km="មើលព័ត៌មានលម្អិត"
+                    href="https://g2-a-expense-tracker-app.vercel.app/"
+                    target="_blank"
+                  >
+                    View Details</a
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="project-info">
+              <h3
+                class="project-title"
+                data-en="Expense Tracker App"
+                data-km="កម្មវិធី​​ តាមដានការចំណាយ"
+              >
+                Expense Tracker App
+              </h3>
+              <p
+                class="project-description"
+                data-en="Responsive website app designed, Track income, expense, balance"
+                data-km="គេហទំព័រឆ្លើយតបដែលរចនាដោយ SASS និងស្តង់ដារគេហទំព័រសម័យទំនើប"
+              >
+                Responsive website app designed, Track income, expense, balance
+              </p>
+              <div class="project-tags">
+                <span class="tag">HTML</span>
+                <span class="tag">CSS</span>
+                <span class="tag">JavaScript</span>
+              </div>
+            </div>
+          </div>
+          <div class="project-card">
+            <div class="project-image">
+              <img
+                src="./src/assets/web-design.PNG"
+                alt=""
+                style="height: 200px"
+              />
+              <div class="project-overlay">
+                <div class="project-links">
+                  <a
+                    class="project-link"
+                    data-en="View Details"
+                    data-km="មើលព័ត៌មានលម្អិត"
+                    href="https://sport-club-webproject.netlify.app/"
+                    target="_blank"
+                  >
+                    View Details</a
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="project-info">
+              <h3
+                class="project-title"
+                data-en="PNC Sport Club Website"
+                data-km="គេហទំព័រក្លឹបកីឡា PNC"
+              >
+                PNC Sport Club Website
+              </h3>
+              <p
+                class="project-description"
+                data-en="Responsive website designed with SASS and modern web standards"
+                data-km="គេហទំព័រឆ្លើយតបដែលរចនាដោយ SASS និងស្តង់ដារគេហទំព័រសម័យទំនើប"
+              >
+                Responsive website designed with SASS and modern web standards
+              </p>
+              <div class="project-tags">
+                <span class="tag">HTML</span>
+                <span class="tag">SASS</span>
+                <span class="tag">Figma</span>
+              </div>
+            </div>
+          </div>
+          <div class="project-card">
+            <div class="project-image">
+              <img
+                src="./src/assets/psa-kasikor.PNG"
+                alt=""
+                style="height: 200px"
+              />
+              <div class="project-overlay">
+                <div class="project-links">
+                  <a
+                    class="project-link"
+                    data-en="View Details"
+                    data-km="មើលព័ត៌មានលម្អិត"
+                    href="https://psa-kasikor.vercel.app/"
+                    target="_blank"
+                  >
+                    View Details</a
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="project-info">
+              <h3
+                class="project-title"
+                data-en=" P'sa Kasikor"
+                data-km="ផ្សារកសិករ"
+              >
+                P'sa Kasikor
+              </h3>
+              <p
+                class="project-description"
+                data-en="This project just a demo of my idea when learning JS course"
+                data-km="គេហទំព័រមួយនេះគ្រាន់តែជាការនឹកឃើញរបស់ខ្ញុំដំបូងសម្រាប់ការបង្កើតកម្មវិធី"
+              >
+                Responsive website designed with SASS and modern web standards
+              </p>
+              <div class="project-tags">
+                <span class="tag">HTML</span>
+                <span class="tag">CSS</span>
+                <span class="tag">JavaScript</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+<section class="social-section">
+  <h2
+    class="section-title"
+    data-en="My Socialization"
+    data-km="ទំនាក់ទំនង​ និងសកម្មភាពរបស់ខ្ញុំ"
+  >
+    My Socialization
+  </h2>
+
+  <!-- First line (left → right) -->
+  <div class="slider slider-left">
+    <div class="slide-track">
+      <img src="./src/assets/image/Achievement.png" alt="">
+      <img src="./src/assets/image/Camerman.png" alt="">
+      <img src="./src/assets/image/exchange program.png" alt="">
+      <img src="./src/assets/image/exchange.png" alt="">
+      <img src="./src/assets/image/Media Trainer.png" alt="">
+      <img src="./src/assets/image/AYLE.png" alt="">
+      <img src="./src/assets/image/copilot.png" alt="">
+      <img src="./src/assets/image/Explaination.png" alt="">
+      <img src="./src/assets/image/Drawing.png" alt="">
+      <!-- Repeat images for smooth loop -->
+      <img src="./src/assets/image/Achievement.png" alt="">
+      <img src="./src/assets/image/Media Trainer.png" alt="">
+      <img src="./src/assets/image/Camerman.png" alt="">
+    </div>
+  </div>
+
+  <!-- Second line (right → left) -->
+  <div class="slider slider-right">
+    <div class="slide-track">
+      <img src="./src/assets/image/Out standing.png" alt="">
+      <img src="./src/assets/image/Present-python.png" alt="">
+      <img src="./src/assets/image/VC1.png" alt="">
+      <img src="./src/assets/image/TI.png" alt="">
+      <img src="./src/assets/image/TIC.png" alt="">
+      <img src="./src/assets/image/TI2.png" alt="">
+      <img src="./src/assets/image/VC2.png" alt="">
+      <img src="./src/assets/image/Sport challenge.png" alt="">
+      <img src="./src/assets/image/Solidarity.png" alt="">
+      <img src="./src/assets/image/PodCast.png" alt="">
+            <!-- Repeat images for smooth loop -->
+      <img src="./src/assets/image/Out standing.png" alt="">
+      <img src="./src/assets/image/PodCast.png" alt="">
+      <img src="./src/assets/image/Present-python.png" alt="">
+    </div>
+  </div>
+</section>
+
+
+
+
+
+    <!-- Contact Section -->
+    <section id="contact" class="section contact-section">
+      <div class="container">
+        <h2
+          class="section-title"
+          data-en="Get In Touch"
+          data-km="ទាក់ទងមកខ្ញុំ"
+        >
+          Get In Touch
+        </h2>
+        <div class="contact-content">
+          <div class="contact-info">
+            <h3 data-en="Let's Work Together" data-km="តោះធ្វើការជាមួយគ្នា">
+              Let's Work Together
+            </h3>
+            <p
+              data-en="I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision."
+              data-km="ខ្ញុំតែងតែបើកចំហសម្រាប់ការពិភាក្សាគម្រោងថ្មីៗ គំនិតច្នៃប្រឌិត ឬឱកាសក្នុងការក្លាយជាផ្នែកមួយនៃចក្ខុវិស័យរបស់អ្នក។"
+            >
+              I'm always open to discussing new projects, creative ideas, or
+              opportunities to be part of your vision.
+            </p>
+            <div class="contact-details">
+              <div class="contact-item">
+                <div class="contact-icon">📧</div>
+                <div class="contact-text">
+                  <div class="contact-label" data-en="Email" data-km="អ៊ីមែល">
+                    Email
+                  </div>
+                  <a href="mailto:chheunseangmeng@gmail.com"
+                    >chheunseangmeng@gmail.com</a
+                  >
+                </div>
+              </div>
+              <div class="contact-item">
+                <div class="contact-icon">📱</div>
+                <div class="contact-text">
+                  <div class="contact-label" data-en="Phone" data-km="ទូរស័ព្ទ">
+                    Phone
+                  </div>
+                  <a href="tel:+85568500744">+855 68 500 744</a>
+                </div>
+              </div>
+              <div class="contact-item">
+                <div class="contact-icon">📍</div>
+                <div class="contact-text">
+                  <div
+                    class="contact-label"
+                    data-en="Location"
+                    data-km="ទីតាំង"
+                  >
+                    Location
+                  </div>
+                  <span>Phnom Penh, Cambodia</span>
+                </div>
+              </div>
+            </div>
+            <div class="social-links">
+              <a
+                href="https://github.com/chheunseangmeng"
+                target="_blank"
+                class="social-link"
+                aria-label="GitHub"
+              >
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                >
+                  <path
+                    d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"
+                  />
+                </svg>
+              </a>
+              <a
+                href="https://www.linkedin.com/in/seangmeng-chheun-60923133b"
+                target="_blank"
+                class="social-link"
+                aria-label="LinkedIn"
+              >
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                >
+                  <path
+                    d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"
+                  />
+                </svg>
+              </a>
+              <a
+                href="https://t.me/seangmengchheun"
+                target="_blank"
+                class="social-link"
+                aria-label="Telegram"
+              >
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                >
+                  <path
+                    d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"
+                  />
+                </svg>
+              </a>
+            </div>
+          </div>
+          <div class="contact-form-wrapper">
+            <form id="contactForm" class="contact-form">
+              <div class="form-group">
+                <label for="name" data-en="Your Name" data-km="ឈ្មោះរបស់អ្នក"
+                  >Your Name</label
+                >
+                <input type="text" id="name" name="name" required />
+              </div>
+              <div class="form-group">
+                <label for="email" data-en="Your Email" data-km="អ៊ីមែលរបស់អ្នក"
+                  >Your Email</label
+                >
+                <input type="email" id="email" name="email" required />
+              </div>
+              <div class="form-group">
+                <label
+                  for="message"
+                  data-en="Your Message"
+                  data-km="សាររបស់អ្នក"
+                  >Your Message</label
+                >
+                <textarea
+                  id="message"
+                  name="message"
+                  rows="0"
+                  required
+                ></textarea>
+              </div>
+              <button
+                type="submit"
+                class="btn btn-primary"
+                data-en="Send Message"
+                data-km="ផ្ញើសារ"
+              >
+                <img
+                  src="https://img.icons8.com/?size=96&id=25n4hOEoY7ss&format=gif&color=f7f7f7"
+                  alt=""
+                />
+                Send Message
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script type="module" src="/src/scripts/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+  </body>
+</html>
