@@ -288,3 +288,59 @@ document.querySelectorAll('.project-link').forEach(btn => {
     });
   });
 });
+
+function setupSlider(trackSelector, prevBtnSelector, nextBtnSelector, reverse = false) {
+    const track = document.querySelector(trackSelector);
+    const slides = track.querySelectorAll("img");
+    const nextBtn = document.querySelector(nextBtnSelector);
+    const prevBtn = document.querySelector(prevBtnSelector);
+
+    let index = 0;
+    const visibleSlides = 3;
+    const totalSlides = slides.length;
+
+    function updateSlide() {
+      const slideWidth = slides[0].clientWidth + 20; // +margin
+      track.style.transform = `translateX(-${index * slideWidth}px)`;
+    }
+
+    nextBtn.addEventListener("click", () => {
+      if (index < totalSlides - visibleSlides) {
+        index++;
+      } else {
+        index = 0;
+      }
+      updateSlide();
+    });
+
+    prevBtn.addEventListener("click", () => {
+      if (index > 0) {
+        index--;
+      } else {
+        index = totalSlides - visibleSlides;
+      }
+      updateSlide();
+    });
+
+    // Auto-slide every 4 seconds
+    setInterval(() => {
+      if (!reverse) {
+        if (index < totalSlides - visibleSlides) {
+          index++;
+        } else {
+          index = 0;
+        }
+      } else {
+        if (index > 0) {
+          index--;
+        } else {
+          index = totalSlides - visibleSlides;
+        }
+      }
+      updateSlide();
+    }, 4000);
+  }
+
+  // Initialize both sliders
+  setupSlider(".track-1", ".prev-btn-1", ".next-btn-1");
+  setupSlider(".track-2", ".prev-btn-2", ".next-btn-2", true);
