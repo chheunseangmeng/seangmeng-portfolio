@@ -24,7 +24,12 @@ const text = (value) => value[props.locale] || value.en;
     />
 
     <div class="timeline">
-      <article v-for="item in experience.items" :key="item.date" class="timeline-card" data-reveal="right">
+      <article 
+        v-for="(item, index) in experience.items" 
+        :key="item.date" 
+        class="timeline-card" 
+        :data-reveal="index % 2 === 0 ? 'right' : 'left'"
+      >
         <span class="timeline-card__date">{{ item.date }}</span>
         <h3>{{ text(item.role) }}</h3>
         <p class="timeline-card__company">{{ item.company }}</p>

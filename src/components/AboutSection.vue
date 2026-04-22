@@ -23,25 +23,17 @@ const text = (value) => value[props.locale] || value.en;
       :subtitle="text(about.heading.subtitle)"
       align="left"
     />
+<div class="about-wrapper">
+  <article class="info-card prose-card" data-reveal="left">
+    <p>{{ text(about.story) }}</p>
+  </article>
 
-    <div class="about-grid">
-      <article class="info-card prose-card" data-reveal="left">
-        <p>{{ text(about.story) }}</p>
-
-        <dl class="detail-list">
-          <div v-for="item in about.details" :key="item.label.en" class="detail-list__item">
-            <dt>{{ text(item.label) }}</dt>
-            <dd>{{ item.value }}</dd>
-          </div>
-        </dl>
-      </article>
-
-      <div class="metrics-grid">
-        <article v-for="metric in about.stats" :key="metric.label.en" class="metric-card" data-reveal="up">
-          <strong>{{ metric.value }}</strong>
-          <span>{{ text(metric.label) }}</span>
-        </article>
-      </div>
+  <div class="stats-row" data-reveal="up">
+    <div v-for="metric in about.stats" :key="metric.label.en" class="metric-card">
+      <strong>{{ metric.value }}</strong>
+      <span>{{ text(metric.label) }}</span>
     </div>
+  </div>
+</div>
   </section>
 </template>

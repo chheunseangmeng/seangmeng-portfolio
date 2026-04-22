@@ -19,18 +19,76 @@ const form = reactive({
   name: "",
   email: "",
   message: "",
+  isSending: false,
 });
 
 const text = (value) => value[props.locale] || value.en;
 
-function submitForm() {
-  const subject = encodeURIComponent(`Portfolio message from ${form.name || "a visitor"}`);
-  const body = encodeURIComponent(
-    `Name: ${form.name}\nEmail: ${form.email}\n\n${form.message}`
-  );
+// Telegram Bot Configuration
+const TELEGRAM_BOT_TOKEN = "7559810524:AAHEU3Lu-ynrJ7it5WX7oh2hrOwE_dZjzgE";
+const TELEGRAM_CHAT_ID = "-1002887359185";
 
-  window.location.href = `mailto:${props.contact.email}?subject=${subject}&body=${body}`;
-  emit("notify", text(props.contact.form.successMessage));
+// Email validation function
+function validateEmail(email) {
+  const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return re.test(email);
+}
+
+async function submitForm() {
+  // Validation
+  if (!form.name || !form.email || !form.message) {
+    emit("notify", "Please fill in all fields");
+    return;
+  }
+
+  if (!validateEmail(form.email)) {
+    emit("notify", "Please enter a valid email address");
+    return;
+  }
+
+  form.isSending = true;
+
+  const message = `
+📥 *New Portfolio Contact* 📥
+
+👤 *Name:* ${form.name}
+📧 *Email:* ${form.email}
+💬 *Message:* 
+${form.message}
+
+📅 *Sent:* ${new Date().toLocaleString()}
+  `;
+
+  const url = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`;
+
+  try {
+    const response = await fetch(url, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        chat_id: TELEGRAM_CHAT_ID,
+        text: message,
+        parse_mode: "Markdown",
+      }),
+    });
+
+    if (response.ok) {
+      emit("notify", text(props.contact.form.successMessage));
+      // Reset form
+      form.name = "";
+      form.email = "";
+      form.message = "";
+    } else {
+      emit("notify", "Failed to send message. Please try again.");
+    }
+  } catch (error) {
+    console.error("Error sending to Telegram:", error);
+    emit("notify", "Network error. Please try again.");
+  } finally {
+    form.isSending = false;
+  }
 }
 </script>
 
@@ -50,21 +108,29 @@ function submitForm() {
 
         <div class="contact-list">
           <a class="contact-list__item" :href="`mailto:${contact.email}`">
-            <span>EM</span>
+            <span>
+              <img 
+                src="https://cdn-icons-png.flaticon.com/128/732/732200.png" 
+                alt="Email"
+                width="20"
+                height="20"
+              />
+            </span>
             <div>
               <strong>{{ text(contact.labels.email) }}</strong>
               <small>{{ contact.email }}</small>
             </div>
           </a>
-          <a class="contact-list__item" :href="`tel:${contact.phoneLink}`">
-            <span>PH</span>
-            <div>
-              <strong>{{ text(contact.labels.phone) }}</strong>
-              <small>{{ contact.phone }}</small>
-            </div>
-          </a>
+
           <div class="contact-list__item">
-            <span>KH</span>
+            <span>
+              <img 
+                src="https://cdn-icons-png.flaticon.com/128/684/684908.png" 
+                alt="Location"
+                width="20"
+                height="20"
+              />
+            </span>
             <div>
               <strong>{{ text(contact.labels.location) }}</strong>
               <small>{{ contact.location }}</small>
@@ -74,25 +140,95 @@ function submitForm() {
 
         <div class="social-row">
           <a v-for="social in contact.socials" :key="social.label" class="social-chip" :href="social.url" target="_blank" rel="noreferrer">
-            {{ social.label }}
+            <img 
+              v-if="social.label === 'GitHub'" 
+              src="https://cdn-icons-png.flaticon.com/128/733/733553.png" 
+              :alt="social.label"
+              width="18"
+              height="18"
+            />
+            <img 
+              v-else-if="social.label === 'LinkedIn'" 
+              src="https://cdn-icons-png.flaticon.com/128/145/145807.png" 
+              :alt="social.label"
+              width="18"
+              height="18"
+            />
+            <img 
+              v-else-if="social.label === 'Telegram'" 
+              src="https://cdn-icons-png.flaticon.com/128/2111/2111646.png" 
+              :alt="social.label"
+              width="18"
+              height="18"
+            />
+            <span v-else>{{ social.label }}</span>
           </a>
         </div>
       </article>
 
-      <form class="contact-form" data-reveal="right" @submit.prevent="submitForm">
+      <form
+        class="contact-form"
+        data-reveal="right"
+        @submit.prevent="submitForm"
+      >
         <label>
           <span>{{ text(contact.form.nameLabel) }}</span>
-          <input v-model="form.name" type="text" required />
+          <input
+            v-model="form.name"
+            type="text"
+            required
+            :disabled="form.isSending"
+            placeholder="Your name"
+          />
         </label>
         <label>
           <span>{{ text(contact.form.emailLabel) }}</span>
-          <input v-model="form.email" type="email" required />
+          <input
+            v-model="form.email"
+            type="email"
+            required
+            :disabled="form.isSending"
+            placeholder="your@email.com"
+          />
         </label>
         <label>
           <span>{{ text(contact.form.messageLabel) }}</span>
-          <textarea v-model="form.message" rows="6" required></textarea>
+          <textarea
+            v-model="form.message"
+            rows="6"
+            required
+            :disabled="form.isSending"
+            placeholder="Your message..."
+          ></textarea>
         </label>
-        <button class="button button--primary" type="submit">{{ text(contact.form.button) }}</button>
+        <button
+          class="animated-button"
+          type="submit"
+          :disabled="form.isSending"
+        >
+          <svg
+            viewBox="0 0 24 24"
+            class="arr-2"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"
+            ></path>
+          </svg>
+          <span class="text">{{
+            form.isSending ? "Sending..." : text(contact.form.button)
+          }}</span>
+          <span class="circle"></span>
+          <svg
+            viewBox="0 0 24 24"
+            class="arr-1"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"
+            ></path>
+          </svg>
+        </button>
       </form>
     </div>
   </section>

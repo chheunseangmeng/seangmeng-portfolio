@@ -22,9 +22,36 @@ const text = (value) => value[props.locale] || value.en;
       <p class="hero-summary">{{ text(hero.description) }}</p>
 
       <div class="hero-actions">
-        <a class="button button--primary" href="#contact">{{ text(hero.primaryCta) }}</a>
-        <a class="button button--ghost" :href="hero.cvUrl" target="_blank" rel="noreferrer">
-          {{ text(hero.secondaryCta) }}
+        <a class="animated-button" href="#contact">
+          <svg
+            viewBox="0 0 24 24"
+            class="arr-2"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"
+            ></path>
+          </svg>
+          <span class="text">{{ text(hero.primaryCta) }}</span>
+          <span class="circle"></span>
+          <svg
+            viewBox="0 0 24 24"
+            class="arr-1"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"
+            ></path>
+          </svg>
+        </a>
+        <a
+          class="animated-button"
+          :href="hero.cvUrl"
+          target="_blank"
+          rel="noreferrer"
+        >
+          <span class="text">{{ text(hero.secondaryCta) }}</span>
+          <span class="circle"></span>
         </a>
       </div>
     </div>
@@ -42,7 +69,11 @@ const text = (value) => value[props.locale] || value.en;
         </span>
 
         <div class="portrait-card">
-          <img :src="hero.image" :alt="text(hero.name)" class="portrait-card__image" />
+          <img
+            :src="hero.image"
+            :alt="text(hero.name)"
+            class="portrait-card__image"
+          />
           <div class="portrait-card__meta">
             <span>{{ text(hero.cardLabel) }}</span>
             <strong>{{ hero.cardValue }}</strong>

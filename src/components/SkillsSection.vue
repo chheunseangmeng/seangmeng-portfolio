@@ -24,18 +24,14 @@ const text = (value) => value[props.locale] || value.en;
     />
 
     <div class="skill-groups">
-      <section
-        v-for="group in skills.groups"
-        :key="group.title.en"
-        class="skill-group"
-      >
-        <h3 class="group-title" data-reveal="up">{{ text(group.title) }}</h3>
+      <div v-for="group in skills.groups" :key="group.title.en" class="group">
+        <h3 class="group-title" data-reveal="right">{{ text(group.title) }}</h3>
         <div class="skill-grid">
-          <article
+          <div
             v-for="skill in group.items"
             :key="skill.name"
             class="skill-card"
-            data-reveal="up"
+            data-reveal="left"
           >
             <div class="skill-card__header">
               <div class="skill-card__icons">
@@ -48,9 +44,9 @@ const text = (value) => value[props.locale] || value.en;
               </div>
             </div>
             <h4>{{ skill.name }}</h4>
-          </article>
+          </div>
         </div>
-      </section>
+      </div>
     </div>
 
     <div class="tool-cloud" data-reveal="up">

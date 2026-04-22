@@ -39,10 +39,10 @@ export const portfolioData = {
   ],
   hero: {
     eyebrow: t(
-      "Designing useful digital experiences",
-      "រចនាបទពិសោធន៍ឌីជីថលដែលមានប្រយោជន៍",
+      "",
+      "",
     ),
-    name: t("Chheun Seangmeng", "ឈឺន សៀងម៉េង"),
+    name: t("Chheun Seangmeng'", "ឈឺន សៀងម៉េង"),
     role: t(
       "Web Developer and Product-Focused Builder",
       "អ្នកអភិវឌ្ឍន៍គេហទំព័រ និងអ្នកបង្កើតផលិតផល",
@@ -54,27 +54,23 @@ export const portfolioData = {
     primaryCta: t("Start a Project", "ចាប់ផ្តើមគម្រោង"),
     secondaryCta: t("Download CV", "ទាញយកប្រវត្តិរូប"),
     cardLabel: t("Currently focused on", "កំពុងផ្តោតលើ"),
-    cardValue: "Vue 3, UI Motion, SQL",
+    cardValue: "Python, Vue 3, MySQL",
     cvUrl: cvFile,
     image: profileImage,
     floatingSkills: [
       {
-        label: "Vue",
         icon: "https://img.icons8.com/?size=160&id=eETV3RNHVrWA&format=png",
         style: "--x: 10%; --y: 8%; --r: -8deg;",
       },
       {
-        label: "Laravel",
-        icon: "https://img.icons8.com/?size=128&id=hUvxmdu7Rloj&format=png",
+        icon: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Laravel.svg/3840px-Laravel.svg.png",
         style: "--x: 75%; --y: 12%; --r: 10deg;",
       },
       {
-        label: "JS",
         icon: "https://img.icons8.com/?size=96&id=tGvHBPJaKqEd&format=gif&color=f7f7f7",
         style: "--x: 82%; --y: 72%; --r: -4deg;",
       },
       {
-        label: "SQL",
         icon: "https://img.icons8.com/?size=96&id=laYYF3dV0Iew&format=png",
         style: "--x: 8%; --y: 76%; --r: 7deg;",
       },
@@ -107,10 +103,10 @@ export const portfolioData = {
     ],
     stats: [
       {
-        value: "2+",
-        label: t("Years learning and shipping", "ឆ្នាំនៃការរៀន និងការអភិវឌ្ឍ"),
+        value: "3+",
+        label: t("Experience of coding", "បទពិសោធន៍នៃការសរសេរកូដ"),
       },
-      { value: "6+", label: t("Projects completed", "គម្រោងបានបញ្ចប់") },
+      { value: "9+", label: t("Projects completed", "គម្រោងបានបញ្ចប់") },
       {
         value: "15+",
         label: t("Technologies explored", "បច្ចេកវិទ្យាដែលបានសិក្សា"),
@@ -120,13 +116,10 @@ export const portfolioData = {
   skills: {
     heading: {
       eyebrow: t("Capabilities", "សមត្ថភាព"),
-      title: t(
-        "Front-end craft with practical back-end depth",
-        "ស្នាដៃ Front-end ជាមួយជំនាញ Back-end ដែលអាចប្រើបាន",
-      ),
+      title: t("Technologies used", "បច្ចេកវិទ្យាដែលធ្លាប់បានប្រើ"),
       subtitle: t(
-        "A mix of interface building, data work, and team tools I use across projects.",
-        "ការរួមបញ្ចូលគ្នានៃការបង្កើតអ៊ីនធើហ្វេស ការងារទិន្នន័យ និងឧបករណ៍ក្រុមដែលខ្ញុំប្រើក្នុងគម្រោង។",
+        "I have been working with all of these technologies!",
+        "ខ្ញុំបានធ្វើការជាមួយបច្ចេកវិទ្យាទាំងអស់នេះ!",
       ),
     },
 
@@ -134,6 +127,14 @@ export const portfolioData = {
       {
         title: t("Programming Languages", "ភាសា សរសេរ​កម្មវិធី"),
         items: [
+          {
+            name: "HTML",
+            icons: ["https://cdn-icons-png.flaticon.com/128/1051/1051277.png"],
+          },
+          {
+            name: "CSS",
+            icons: ["https://cdn-icons-png.flaticon.com/128/732/732190.png"],
+          },
           {
             name: "JavaScript",
             icons: [
@@ -191,19 +192,17 @@ export const portfolioData = {
               "https://img.icons8.com/?size=128&id=FnnFuAIw4e8j&format=png",
             ],
           },
+           {
+            name: "Sass",
+            icons: [
+              "https://cdn-icons-png.flaticon.com/128/919/919831.png",
+            ],
+          },
         ],
       },
       {
         title: t("Database & Tools", "មូលដ្ឋានទិន្នន័យ & ឧបករណ៍"),
         items: [
-          {
-            name: "HTML / CSS",
-            icons: [
-              "https://cdn-icons-png.flaticon.com/128/1051/1051277.png",
-              "https://cdn-icons-png.flaticon.com/128/732/732190.png",
-              "https://cdn-icons-png.flaticon.com/128/919/919831.png",
-            ],
-          },
           {
             name: "MySQL",
             icons: [
@@ -222,33 +221,35 @@ export const portfolioData = {
     tools: [
       "OOP",
       "Git/GitHub",
-      "VS Code",
       "Figma",
-      "Jira",
       "Power BI",
       "AWS",
       "Linux",
       "Postman",
-      "TypeScript",
       "SSMS",
       "SSRS",
-      "SSIS",
-      "AI Prompting",
+      "Prompting Engineer",
     ],
   },
   experience: {
     heading: {
       eyebrow: t("Experience", "បទពិសោធន៍"),
-      title: t(
-        "Work and school projects that built momentum",
-        "ការងារ និងគម្រោងសាលាដែលបង្កើតបទពិសោធន៍",
-      ),
+      title: t("Education & Working  Exp", "បទពិសោធន៍ការងារ"),
       subtitle: t(
         "A timeline of roles where I shipped features, coordinated teams, and learned from real constraints.",
         "បន្ទាត់ពេលវេលានៃតួនាទីដែលខ្ញុំបានអភិវឌ្ឍមុខងារ សម្របសម្រួលក្រុម និងរៀនពីកម្រិតកំណត់ជាក់ស្តែង។",
       ),
     },
     items: [
+      {
+        date: "Feb 2026 - Present",
+        role: t("Web Developer", "អ្នកអភិវឌ្ឍគេហទំព័រ"),
+        company: "Ezze System Cambodia",
+        description: t(
+          "I develop Telegram bots using Python for backend logic and user interaction. I build Telegram Mini Apps using Vue 3 for interactive and responsive UI inside Telegram. I connect both systems with APIs and database for smooth user experience.",
+          "ខ្ញុំអភិវឌ្ឍ Telegram Bot ដោយប្រើ Python និង Mini App ដោយប្រើ Vue3 និងភ្ជាប់ប្រព័ន្ធទាំងពីរជាមួយ API និង Database។",
+        ),
+      },
       {
         date: "Sep - Dec 2025",
         role: t("Data Engineer Intern", "កម្មសិក្សា - វិស្វករទិន្នន័យ"),
@@ -259,30 +260,12 @@ export const portfolioData = {
         ),
       },
       {
-        date: "Jul - Aug 2025",
-        role: t("FullStack Developer", "អ្នកអភិវឌ្ឍន៍ FullStack"),
-        company: "QR Code Menu Application - School Project",
+        date: "2023 - 2025",
+        role: t("Computer Science Student", "និស្សិតវិទ្យាសាស្ត្រកុំព្យូទ័រ"),
+        company: "Passerelles Numeriques Cambodia",
         description: t(
-          "Built a mobile application with Flutter, Laravel, and MySQL while managing agile workflows with Jira and GitHub.",
-          "បង្កើតកម្មវិធីទូរសព្ទដោយប្រើ Flutter, Laravel និង MySQL ព្រមទាំងគ្រប់គ្រងលំហូរការងារ agile ជាមួយ Jira និង GitHub។",
-        ),
-      },
-      {
-        date: "Feb - May 2025",
-        role: t("Scrum Master", "Scrum Master"),
-        company: "Stock Inventory Management - School Project",
-        description: t(
-          "Led a five-person team to design and implement a stock inventory system using HTML, CSS, Bootstrap, JavaScript, PHP, and MySQL.",
-          "ដឹកនាំក្រុមប្រាំនាក់ក្នុងការរចនា និងអនុវត្តប្រព័ន្ធគ្រប់គ្រងសារពើភ័ណ្ឌដោយប្រើ HTML, CSS, Bootstrap, JavaScript, PHP និង MySQL។",
-        ),
-      },
-      {
-        date: "Jan 2025",
-        role: t("Team Leader", "ប្រធានក្រុម"),
-        company: "Expense Tracker App - School Project",
-        description: t(
-          "Led development of an expense tracker with a clean interface using HTML, CSS, and JavaScript.",
-          "ដឹកនាំការអភិវឌ្ឍកម្មវិធីតាមដានចំណាយជាមួយអ៊ីនធើហ្វេសស្អាតដោយប្រើ HTML, CSS និង JavaScript។",
+          "At PNC, I learned web development, database management, and how to build full applications, while also improving my soft skills like teamwork, communication, and problem-solving.",
+          "ឆ្លើយតបនឹងសំណើទិន្នន័យ និងស្រង់ព័ត៌មានពីឃ្លាំងទិន្នន័យដោយប្រើ SQL Server, SSMS, SSRS, SSIS និង Python។",
         ),
       },
     ],
@@ -438,15 +421,13 @@ export const portfolioData = {
       nameLabel: t("Your name", "ឈ្មោះរបស់អ្នក"),
       emailLabel: t("Your email", "អ៊ីមែលរបស់អ្នក"),
       messageLabel: t("Your message", "សាររបស់អ្នក"),
-      button: t("Send via email app", "ផ្ញើតាមកម្មវិធីអ៊ីមែល"),
+      button: t("Send via telegram app", "ផ្ញើតាមកម្មវិធីអ៊ីមែល"),
       successMessage: t(
-        "Your email app should open with the message drafted.",
-        "កម្មវិធីអ៊ីមែលរបស់អ្នកគួរតែបើកជាមួយសារដែលបានរៀបចំរួច។",
+        "You have successfully sent the message!",
+        "អ្នកបានផ្ញើសារដោយជោគជ័យហើយ!",
       ),
     },
-    email: "chheunseangmeng@gmail.com",
-    phone: "+855 68 500 744",
-    phoneLink: "+85568500744",
+    email: "seavsmoker@gmail.com",
     location: "Phnom Penh, Cambodia",
     socials: [
       { label: "GitHub", url: "https://github.com/chheunseangmeng" },
