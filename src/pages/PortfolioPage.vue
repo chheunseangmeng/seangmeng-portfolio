@@ -121,7 +121,6 @@ onBeforeUnmount(() => {
       <ContactSection :locale="locale" :contact="portfolioData.contact" @notify="notify" />
     </main>
     
-    <button>hello</button>
     <AppToast :message="toastMessage" />
   </div>
 </template>
