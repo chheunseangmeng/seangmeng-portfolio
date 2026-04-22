@@ -136,22 +136,26 @@ body {
   margin-right: auto;
 }
 
+.site-nav__link.is-active {
+  color: var(--accent);
+  background: rgba(110, 231, 183, 0.2);
+  border-bottom: 2px solid var(--accent);
+}
+
 .site-nav__link {
   position: relative;
   padding: 0.45rem 0.8rem;
   border-radius: 999px;
   color: var(--muted);
-  transition:
-    color 180ms ease,
-    background 180ms ease;
+  transition: all 180ms ease;
   text-decoration: none;
 }
-
-.site-nav__link.is-active,
 .site-nav__link:hover {
   color: var(--text);
-  background: rgba(110, 231, 183, 0.12);
+  background: rgba(7, 223, 137, 0.591);
 }
+
+
 
 .site-header__actions {
   display: flex;
@@ -216,6 +220,7 @@ body {
   padding: 5rem clamp(1.4rem, 2vw, 2rem);
   border-radius: 2.2rem;
   align-items: center;
+  margin-top: -6rem;
 }
 
 .hero-panel__copy,
@@ -271,7 +276,7 @@ body {
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
-  margin: 0 0 2px 2px;
+  margin: 50px 0 2px 2px;
 }
 
 /* Animated Button Styles */

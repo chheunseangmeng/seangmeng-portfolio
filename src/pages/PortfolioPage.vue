@@ -1,5 +1,5 @@
 <script setup>
-import { computed, onBeforeUnmount, onMounted, ref, watch } from "vue";
+import { computed, onBeforeUnmount, onMounted, ref, watch, nextTick } from "vue";
 import AppHeader from "../components/AppHeader.vue";
 import HeroSection from "../components/HeroSection.vue";
 import AboutSection from "../components/AboutSection.vue";
@@ -51,23 +51,56 @@ function notify(message) {
 }
 
 function setupScrollSpy() {
-  const sections = document.querySelectorAll("section[id]");
+  // Wait for DOM to be fully rendered
+  nextTick(() => {
+    const sections = document.querySelectorAll("section[id]");
+    console.log("Sections found for scroll spy:", sections.length);
+    
+    sections.forEach(section => {
+      console.log("Section ID:", section.id);
+    });
 
-  sectionObserver = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          activeSection.value = entry.target.id;
-        }
-      });
-    },
-    {
-      threshold: 0.45,
-      rootMargin: "-15% 0px -35% 0px",
+    if (sectionObserver) {
+      sectionObserver.disconnect();
     }
-  );
 
-  sections.forEach((section) => sectionObserver.observe(section));
+    sectionObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const sectionId = entry.target.id;
+            console.log("Active section detected:", sectionId);
+            activeSection.value = sectionId;
+          }
+        });
+      },
+      {
+        threshold: 0.35,
+        rootMargin: "-20% 0px -35% 0px",
+      }
+    );
+
+    sections.forEach((section) => {
+      sectionObserver.observe(section);
+    });
+  });
+}
+
+// Watch for route hash changes (manual clicks)
+function watchHashChange() {
+  const handleHashChange = () => {
+    const hash = window.location.hash.slice(1);
+    if (hash) {
+      activeSection.value = hash;
+      const element = document.getElementById(hash);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  };
+  
+  window.addEventListener("hashchange", handleHashChange);
+  return () => window.removeEventListener("hashchange", handleHashChange);
 }
 
 watch(theme, (value) => {
@@ -84,6 +117,7 @@ onMounted(() => {
   document.documentElement.dataset.theme = theme.value;
   document.documentElement.lang = locale.value;
   setupScrollSpy();
+  watchHashChange();
 });
 
 onBeforeUnmount(() => {
@@ -114,8 +148,8 @@ onBeforeUnmount(() => {
     <main class="page-frame" @click="closeMenu">
       <HeroSection :locale="locale" :hero="portfolioData.hero" />
       <AboutSection :locale="locale" :about="portfolioData.about" />
-      <SkillsSection :locale="locale" :skills="portfolioData.skills" />
       <ExperienceSection :locale="locale" :experience="portfolioData.experience" />
+      <SkillsSection :locale="locale" :skills="portfolioData.skills" />
       <ProjectsSection :locale="locale" :projects="portfolioData.projects" @notify="notify" />
       <GallerySection :locale="locale" :gallery="portfolioData.gallery" />
       <ContactSection :locale="locale" :contact="portfolioData.contact" @notify="notify" />

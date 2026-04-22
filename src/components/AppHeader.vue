@@ -126,9 +126,7 @@ onMounted(() => {
         />
       </button>
       
-      <!-- Music Toggle Switch - Play/Pause -->
-      <!-- When playing (isMuted = false) -> speaker shows (sound waves) -->
-      <!-- When paused (isMuted = true) -> crossed speaker shows -->
+
       <input type="checkbox" id="checkboxInput" :checked="isMuted" @change="toggleMusic">
       <label for="checkboxInput" class="toggleSwitch">
         <div class="speaker">
