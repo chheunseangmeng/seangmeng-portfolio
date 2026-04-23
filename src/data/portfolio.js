@@ -92,19 +92,10 @@ export const portfolioData = {
       "My name is Chheun Seangmeng, a Computer Science student at Passerelles Numeriques Cambodia specializing in web development. I enjoy combining clean implementation, problem solving, and thoughtful interface design to build products that feel modern and useful.",
       "ខ្ញុំឈ្មោះ ឈឺន សៀងម៉េង ជាសិស្សវិទ្យាសាស្ត្រកុំព្យូទ័រនៅ Passerelles Numeriques Cambodia ដែលមានជំនាញផ្នែកអភិវឌ្ឍន៍គេហទំព័រ។ ខ្ញុំចូលចិត្តបញ្ចូលគ្នារវាងការអនុវត្តកូដស្អាត ការដោះស្រាយបញ្ហា និងការរចនាអ៊ីនធើហ្វេសប្រកបដោយការគិត ដើម្បីបង្កើតផលិតផលទំនើប និងមានប្រយោជន៍។",
     ),
-    details: [
-      { label: t("Full Name", "ឈ្មោះពេញ"), value: "Chheun Seangmeng" },
-      { label: t("Date of Birth", "ថ្ងៃខែឆ្នាំកំណើត"), value: "June 19, 2006" },
-      { label: t("Location", "ទីតាំង"), value: "Phnom Penh, Cambodia" },
-      {
-        label: t("Education", "ការអប់រំ"),
-        value: "Passerelles Numeriques Cambodia",
-      },
-    ],
     stats: [
       {
         value: "3+",
-        label: t("Experience of coding", "បទពិសោធន៍នៃការសរសេរកូដ"),
+        label: t("Years Experience of coding", "​​ឆ្នាំនៃបទពិសោធន៍ក្នុងការសរសេរកូដ"),
       },
       { value: "9+", label: t("Projects completed", "គម្រោងបានបញ្ចប់") },
       {
@@ -252,7 +243,7 @@ export const portfolioData = {
       },
       {
         date: "Sep - Dec 2025",
-        role: t("Data Engineer Intern", "កម្មសិក្សា - វិស្វករទិន្នន័យ"),
+        role: t("Data Engineer Intern", "ចុះកម្មសិក្សា - វិស្វករទិន្នន័យ"),
         company: "Dai ichi Life Insurance Cambodia",
         description: t(
           "Responded to data requests and extracted warehouse information using SQL Server, SSMS, SSRS, SSIS, and Python.",
@@ -402,7 +393,7 @@ export const portfolioData = {
       ),
       subtitle: t(
         "Reach out for freelance work, collaborations, or product ideas.",
-        "ទាក់ទងមកសម្រាប់ការងារកម្មសិក្សា ការងារឯករាជ្យ ការសហការ ឬគំនិតផលិតផល។",
+        "ទាក់ទងមកសម្រាប់ការងារ ការងារឯករាជ្យ ការសហការ ឬគំនិតផលិតផល។",
       ),
     },
     invite: {
@@ -421,7 +412,7 @@ export const portfolioData = {
       nameLabel: t("Your name", "ឈ្មោះរបស់អ្នក"),
       emailLabel: t("Your email", "អ៊ីមែលរបស់អ្នក"),
       messageLabel: t("Your message", "សាររបស់អ្នក"),
-      button: t("Send via telegram app", "ផ្ញើតាមកម្មវិធីអ៊ីមែល"),
+      button: t("Send via telegram app", "ផ្ញើតាមកម្មវិធីតេឡេក្រាម"),
       successMessage: t(
         "You have successfully sent the message!",
         "អ្នកបានផ្ញើសារដោយជោគជ័យហើយ!",
