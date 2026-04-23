@@ -5,7 +5,7 @@ export function useReveal(selector = "[data-reveal]") {
 
   onMounted(() => {
     const elements = document.querySelectorAll(selector);
-    
+
     if (!elements.length) return;
 
     observer = new IntersectionObserver(
@@ -23,9 +23,12 @@ export function useReveal(selector = "[data-reveal]") {
       },
     );
 
-    elements.forEach((element) => {
-      observer.observe(element);
-    });
+   elements.forEach((element, index) => {
+  // Faster stagger - 60ms between each element
+  const delay = `${index * 10}ms`;
+  element.style.setProperty("--reveal-delay", delay);
+  observer.observe(element);
+});
   });
 
   onBeforeUnmount(() => {

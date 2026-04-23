@@ -18,7 +18,6 @@ const text = (value) => value[props.locale] || value.en;
 <template>
   <section id="experience" class="panel section-block">
     <SectionTitle
-      :eyebrow="text(experience.heading.eyebrow)"
       :title="text(experience.heading.title)"
       :subtitle="text(experience.heading.subtitle)"
     />

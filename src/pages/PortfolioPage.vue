@@ -13,10 +13,11 @@ import { portfolioData } from "../data/portfolio";
 import { useReveal } from "../composables/useReveal";
 
 const locale = ref(localStorage.getItem("portfolio-locale") || "en");
-const theme = ref("dark"); // Dark mode by default
+const theme = ref("dark");
 const isMenuOpen = ref(false);
 const activeSection = ref("home");
 const toastMessage = ref("");
+const isClick = ref(false);
 
 let sectionObserver;
 let toastTimer;
@@ -51,11 +52,10 @@ function notify(message) {
 }
 
 function setupScrollSpy() {
-  // Wait for DOM to be fully rendered
   nextTick(() => {
     const sections = document.querySelectorAll("section[id]");
-    console.log("Sections found for scroll spy:", sections.length);
     
+    console.log("Sections found:", sections.length);
     sections.forEach(section => {
       console.log("Section ID:", section.id);
     });
@@ -69,14 +69,14 @@ function setupScrollSpy() {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             const sectionId = entry.target.id;
-            console.log("Active section detected:", sectionId);
+            console.log("Active section:", sectionId);
             activeSection.value = sectionId;
           }
         });
       },
       {
-        threshold: 0.35,
-        rootMargin: "-20% 0px -35% 0px",
+        threshold: 0.3,
+        rootMargin: "-10% 0px -30% 0px",
       }
     );
 
@@ -86,26 +86,88 @@ function setupScrollSpy() {
   });
 }
 
-// Watch for route hash changes (manual clicks)
-function watchHashChange() {
-  const handleHashChange = () => {
-    const hash = window.location.hash.slice(1);
-    if (hash) {
-      activeSection.value = hash;
-      const element = document.getElementById(hash);
-      if (element) {
-        element.scrollIntoView({ behavior: "smooth" });
-      }
+// Scroll to top function
+function scrollToTop() {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+}
+
+// Show/hide button based on scroll position
+function handleScroll() {
+  if (window.scrollY > 300) {
+    isClick.value = true;
+  } else {
+    isClick.value = false;
+  }
+}
+
+// Handle header scroll
+function handleHeaderScroll() {
+  const header = document.querySelector('.site-header');
+  if (header) {
+    if (window.scrollY > 50) {
+      header.classList.add('scrolled');
+    } else {
+      header.classList.remove('scrolled');
     }
-  };
+  }
+}
+
+// Starry night functions
+function createStars() {
+  if (document.documentElement.dataset.theme !== "dark") return;
   
-  window.addEventListener("hashchange", handleHashChange);
-  return () => window.removeEventListener("hashchange", handleHashChange);
+  const existingStars = document.querySelector(".stars");
+  if (existingStars) existingStars.remove();
+  
+  const starsContainer = document.createElement("div");
+  starsContainer.className = "stars";
+  document.body.appendChild(starsContainer);
+  
+  for (let i = 0; i < 250; i++) {
+    const star = document.createElement("div");
+    star.className = "star";
+    const size = Math.random() * 3 + 1;
+    star.style.width = `${size}px`;
+    star.style.height = `${size}px`;
+    star.style.left = `${Math.random() * 100}%`;
+    star.style.top = `${Math.random() * 100}%`;
+    star.style.setProperty("--duration", `${Math.random() * 3 + 2}s`);
+    star.style.animationDelay = `${Math.random() * 5}s`;
+    starsContainer.appendChild(star);
+  }
+  
+  for (let i = 0; i < 8; i++) {
+    const shootingStar = document.createElement("div");
+    shootingStar.className = "shooting-star";
+    shootingStar.style.top = `${Math.random() * 60}%`;
+    shootingStar.style.left = `${Math.random() * 80 + 10}%`;
+    shootingStar.style.animationDelay = `${Math.random() * 20}s`;
+    shootingStar.style.animationDuration = `${Math.random() * 5 + 6}s`;
+    document.body.appendChild(shootingStar);
+  }
+}
+
+function removeStarsAndMoon() {
+  const stars = document.querySelector(".stars");
+  const shootingStars = document.querySelectorAll(".shooting-star");
+  if (stars) stars.remove();
+  shootingStars.forEach(star => star.remove());
 }
 
 watch(theme, (value) => {
   document.documentElement.dataset.theme = value;
   localStorage.setItem("portfolio-theme", value);
+  
+  if (value === "dark") {
+    setTimeout(() => {
+      createStars();
+    }, 100);
+  } else {
+    removeStarsAndMoon();
+  }
 });
 
 watch(locale, (value) => {
@@ -117,7 +179,13 @@ onMounted(() => {
   document.documentElement.dataset.theme = theme.value;
   document.documentElement.lang = locale.value;
   setupScrollSpy();
-  watchHashChange();
+  
+  if (theme.value === "dark") {
+    createStars();
+  }
+  
+  window.addEventListener("scroll", handleScroll);
+  window.addEventListener("scroll", handleHeaderScroll);
 });
 
 onBeforeUnmount(() => {
@@ -125,6 +193,9 @@ onBeforeUnmount(() => {
     sectionObserver.disconnect();
   }
   clearTimeout(toastTimer);
+  removeStarsAndMoon();
+  window.removeEventListener("scroll", handleScroll);
+  window.removeEventListener("scroll", handleHeaderScroll);
 });
 </script>
 
@@ -148,13 +219,17 @@ onBeforeUnmount(() => {
     <main class="page-frame" @click="closeMenu">
       <HeroSection :locale="locale" :hero="portfolioData.hero" />
       <AboutSection :locale="locale" :about="portfolioData.about" />
-      <ExperienceSection :locale="locale" :experience="portfolioData.experience" />
       <SkillsSection :locale="locale" :skills="portfolioData.skills" />
+      <ExperienceSection :locale="locale" :experience="portfolioData.experience" />
       <ProjectsSection :locale="locale" :projects="portfolioData.projects" @notify="notify" />
       <GallerySection :locale="locale" :gallery="portfolioData.gallery" />
       <ContactSection :locale="locale" :contact="portfolioData.contact" @notify="notify" />
     </main>
     
     <AppToast :message="toastMessage" />
+
+    <button v-if="isClick" class="scroll-to-top" @click="scrollToTop">
+      <i class="fa-solid fa-angles-up"></i>
+    </button>
   </div>
 </template>

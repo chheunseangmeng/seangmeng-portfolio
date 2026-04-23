@@ -63,15 +63,15 @@ export const portfolioData = {
         style: "--x: 10%; --y: 8%; --r: -8deg;",
       },
       {
-        icon: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Laravel.svg/3840px-Laravel.svg.png",
+        icon: "https://images.icon-icons.com/1508/PNG/512/python_104451.png",
         style: "--x: 75%; --y: 12%; --r: 10deg;",
       },
       {
-        icon: "https://img.icons8.com/?size=96&id=tGvHBPJaKqEd&format=gif&color=f7f7f7",
+        icon: "https://img.icons8.com/?size=160&id=QeIg9siFKGgp&format=png",
         style: "--x: 82%; --y: 72%; --r: -4deg;",
       },
       {
-        icon: "https://img.icons8.com/?size=96&id=laYYF3dV0Iew&format=png",
+        icon: "https://img.icons8.com/?size=96&id=tGvHBPJaKqEd&format=gif&color=f7f7f7",
         style: "--x: 8%; --y: 76%; --r: 7deg;",
       },
     ],
@@ -115,7 +115,7 @@ export const portfolioData = {
   },
   skills: {
     heading: {
-      eyebrow: t("Capabilities", "សមត្ថភាព"),
+      eyebrow: t("", ""),
       title: t("Technologies used", "បច្ចេកវិទ្យាដែលធ្លាប់បានប្រើ"),
       subtitle: t(
         "I have been working with all of these technologies!",
@@ -228,12 +228,12 @@ export const portfolioData = {
       "Postman",
       "SSMS",
       "SSRS",
-      "Prompting Engineer",
+      "Prompt Engineering",
     ],
   },
   experience: {
     heading: {
-      eyebrow: t("Experience", "បទពិសោធន៍"),
+      eyebrow: t("", ""),
       title: t("Education & Working  Exp", "បទពិសោធន៍ការងារ"),
       subtitle: t(
         "A timeline of roles where I shipped features, coordinated teams, and learned from real constraints.",
@@ -401,7 +401,7 @@ export const portfolioData = {
         "តោះបង្កើតអ្វីមួយដែលមានគំនិតជាមួយគ្នា",
       ),
       subtitle: t(
-        "Reach out for internships, freelance work, collaborations, or product ideas.",
+        "Reach out for freelance work, collaborations, or product ideas.",
         "ទាក់ទងមកសម្រាប់ការងារកម្មសិក្សា ការងារឯករាជ្យ ការសហការ ឬគំនិតផលិតផល។",
       ),
     },
