@@ -53,8 +53,6 @@ export const portfolioData = {
     ),
     primaryCta: t("Start a Project", "ចាប់ផ្តើមគម្រោង"),
     secondaryCta: t("Download CV", "ទាញយកប្រវត្តិរូប"),
-    cardLabel: t("Currently focused on", "កំពុងផ្តោតលើ"),
-    cardValue: "Python, Vue 3, MySQL",
     cvUrl: cvFile,
     image: profileImage,
     floatingSkills: [

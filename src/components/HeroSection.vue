@@ -56,10 +56,6 @@ const text = (value) => value[props.locale] || value.en;
             :alt="text(hero.name)"
             class="portrait-card__image"
           />
-          <div class="portrait-card__meta">
-            <span>{{ text(hero.cardLabel) }}</span>
-            <strong>{{ hero.cardValue }}</strong>
-          </div>
         </div>
       </div>
     </div>
