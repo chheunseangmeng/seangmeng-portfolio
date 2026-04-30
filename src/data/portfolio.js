@@ -84,7 +84,7 @@ export const portfolioData = {
       ),
     },
     story: t(
-      "My name is Chheun Seangmeng, a Computer Science student at Passerelles Numeriques Cambodia specializing in web development. I enjoy combining clean implementation, problem solving, and thoughtful interface design to build products that feel modern and useful.",
+      "My name is Chheun Seangmeng, a Computer Science student at Passerelles Numeriques Cambodia specializing in ' Web Development. I enjoy combining clean implementation, problem solving, and thoughtful interface design to build products that feel modern and useful.",
       "ខ្ញុំឈ្មោះ ឈឺន សៀងម៉េង ជាសិស្សវិទ្យាសាស្ត្រកុំព្យូទ័រនៅ Passerelles Numeriques Cambodia ដែលមានជំនាញផ្នែកអភិវឌ្ឍន៍គេហទំព័រ។ ខ្ញុំចូលចិត្តបញ្ចូលគ្នារវាងការអនុវត្តកូដស្អាត ការដោះស្រាយបញ្ហា និងការរចនាអ៊ីនធើហ្វេសប្រកបដោយការគិត ដើម្បីបង្កើតផលិតផលទំនើប និងមានប្រយោជន៍។",
     ),
     stats: [
@@ -95,7 +95,7 @@ export const portfolioData = {
           "​​ឆ្នាំនៃបទពិសោធន៍ក្នុងការសរសេរកូដ",
         ),
       },
-      { value: "9+", label: t("Projects completed", "គម្រោងបានបញ្ចប់") },
+      { value: "12+", label: t("Company's Projects completed", "គម្រោងក្រុមហ៊ុនបានបញ្ចប់") },
       {
         value: "15+",
         label: t("Technologies explored", "បច្ចេកវិទ្យាដែលបានសិក្សា"),
@@ -251,7 +251,7 @@ export const portfolioData = {
         role: t("Computer Science Student", "និស្សិតវិទ្យាសាស្ត្រកុំព្យូទ័រ"),
         company: "Passerelles Numeriques Cambodia",
         description: t(
-          "At PNC, I learned web development, database management, and how to build full applications, while also improving my soft skills like teamwork, communication, and problem-solving.",
+          "At PNC, I learned Web Development', database management, and how to build full stack applications, while also improving my soft skills like teamwork, communication, and problem-solving.",
           "ឆ្លើយតបនឹងសំណើទិន្នន័យ និងស្រង់ព័ត៌មានពីឃ្លាំងទិន្នន័យដោយប្រើ SQL Server, SSMS, SSRS, SSIS និង Python។",
         ),
       },
@@ -278,7 +278,7 @@ export const portfolioData = {
         image: projectiTCare,
         title: t("iTCare Insure", "ធានានិងតំហែទាំអាយធី"),
         description: t(
-          "iTCare Insure is a web app concept for an IT service and insurance management platform. <Backend in local PC>",
+          "A web app concept for an IT service and insurance management platform. <Backend in local PC>",
           "iTCare Insure គឺជា web app concept សម្រាប់ប្រព័ន្ធគ្រប់គ្រងសេវាកម្ម IT និងធានារ៉ាប់រង។",
         ),
         tags: ["Vue3", "Node JS & Express", "MySQL"],
@@ -289,7 +289,7 @@ export const portfolioData = {
         image: projectQr,
         title: t("QR Code Menu App", "កម្មវិធីមឺនុយ QR Code"),
         description: t(
-          "A digital restaurant menu system built with Flutter and Laravel.",
+          "A digital restaurant menu system for browsing dishes, viewing details, and placing orders easily.",
           "ប្រព័ន្ធមឺនុយភោជនីយដ្ឋានឌីជីថលដែលបង្កើតដោយ Flutter និង Laravel។",
         ),
         tags: ["Flutter", "Laravel", "MySQL"],
