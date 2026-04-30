@@ -5,7 +5,7 @@ import projectInventory from "../assets/vc-png.webp";
 import projectVoice from "../assets/python-algorithm.webp";
 import projectExpense from "../assets/java-script.webp";
 import projectSport from "../assets/web-design.webp";
-import projectKasikor from "../assets/psa-kasikor.webp";
+import projectiTCare from "../assets/itcare.webp";
 import galleryAchievement from "../assets/image/Achievement.webp";
 import galleryCameraman from "../assets/image/Camerman.webp";
 import galleryExchangeProgram from "../assets/image/exchange program.webp";
@@ -38,10 +38,7 @@ export const portfolioData = {
     { id: "contact", ...t("Contact", "ទំនាក់ទំនង") },
   ],
   hero: {
-    eyebrow: t(
-      "",
-      "",
-    ),
+    eyebrow: t("", ""),
     name: t("Chheun Seangmeng'", "ឈឺន សៀងម៉េង"),
     role: t(
       "Web Developer and Product-Focused Builder",
@@ -93,7 +90,10 @@ export const portfolioData = {
     stats: [
       {
         value: "3+",
-        label: t("Years Experience of coding", "​​ឆ្នាំនៃបទពិសោធន៍ក្នុងការសរសេរកូដ"),
+        label: t(
+          "Years Experience of coding",
+          "​​ឆ្នាំនៃបទពិសោធន៍ក្នុងការសរសេរកូដ",
+        ),
       },
       { value: "9+", label: t("Projects completed", "គម្រោងបានបញ្ចប់") },
       {
@@ -181,11 +181,9 @@ export const portfolioData = {
               "https://img.icons8.com/?size=128&id=FnnFuAIw4e8j&format=png",
             ],
           },
-           {
+          {
             name: "Sass",
-            icons: [
-              "https://cdn-icons-png.flaticon.com/128/919/919831.png",
-            ],
+            icons: ["https://cdn-icons-png.flaticon.com/128/919/919831.png"],
           },
         ],
       },
@@ -272,10 +270,21 @@ export const portfolioData = {
       ),
     },
     unavailableMessage: t(
-      "This project is not hosted yet, but the case study is still part of my portfolio.",
-      "គម្រោងនេះមិនទាន់បានបង្ហោះនៅឡើយទេ ប៉ុន្តែករណីសិក្សានៅតែជាផ្នែកមួយនៃប្រវត្តិការងាររបស់ខ្ញុំ។",
+      "This project is not hosted yet!",
+      "គម្រោងនេះមិនទាន់បានបង្ហោះនៅឡើយទេ",
     ),
     items: [
+      {
+        image: projectiTCare,
+        title: t("iTCare Insure", "ធានានិងតំហែទាំអាយធី"),
+        description: t(
+          "iTCare Insure is a web app concept for an IT service and insurance management platform. <Backend in local PC>",
+          "iTCare Insure គឺជា web app concept សម្រាប់ប្រព័ន្ធគ្រប់គ្រងសេវាកម្ម IT និងធានារ៉ាប់រង។",
+        ),
+        tags: ["Vue3", "Node JS & Express", "MySQL"],
+        cta: t("Open Demo", "បើក Demo"),
+        url: "https://itcaree.netlify.app/",
+      },
       {
         image: projectQr,
         title: t("QR Code Menu App", "កម្មវិធីមឺនុយ QR Code"),
@@ -330,17 +339,6 @@ export const portfolioData = {
         tags: ["HTML", "SASS", "Figma"],
         cta: t("Open Demo", "បើក Demo"),
         url: "https://sport-club-webproject.netlify.app/",
-      },
-      {
-        image: projectKasikor,
-        title: t("P'sa Kasikor", "ផ្សារកសិករ"),
-        description: t(
-          "A concept demo that came from experimenting while learning JavaScript.",
-          "Demo គំនិតមួយដែលកើតចេញពីការសាកល្បងខណៈពេលរៀន JavaScript។",
-        ),
-        tags: ["HTML", "CSS", "JavaScript"],
-        cta: t("Open Demo", "បើក Demo"),
-        url: "https://psa-kasikor.vercel.app/",
       },
     ],
   },

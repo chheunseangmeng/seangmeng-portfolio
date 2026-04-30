@@ -313,6 +313,14 @@ body {
   }
 }
 
+.contact-form label,
+.contact-form input,
+.contact-form textarea {
+  user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+
 .site-nav__link.is-active {
   animation: activeGlow 2s ease-in-out infinite;
 }
@@ -1246,15 +1254,21 @@ body {
 
 .app-toast {
   position: fixed;
-  right: 1rem;
-  bottom: 1rem;
-  z-index: 40;
-  padding: 0.95rem 1.15rem;
-  border-radius: 1rem;
-  border: 1px solid var(--line);
-  background: rgba(8, 17, 31, 0.92);
-  color: var(--text);
-  box-shadow: var(--shadow);
+  top: 5.5rem;
+  right: 2rem;
+  left: auto;
+  transform: none;
+  z-index: 100;
+  padding: 1rem 1.5rem;
+  border-radius: 1.2rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(22, 163, 74, 0.427);
+  color: #ffffff;
+  box-shadow: 0 10px 25px -5px rgba(18, 229, 95, 0.31);
+  backdrop-filter: blur(12px);
+  white-space: nowrap;
+  pointer-events: none;
+  font-weight: 600;
 }
 
 /* Reveal Animations */
@@ -1291,7 +1305,7 @@ body {
 .toast-enter-from,
 .toast-leave-to {
   opacity: 0;
-  transform: translateY(12px);
+  transform: translateX(30px);
 }
 
 @keyframes marquee {
