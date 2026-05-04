@@ -1,5 +1,5 @@
 import profileImage from "../assets/pf.webp";
-import cvFile from "../assets/chheun_seangmeng_CV.pdf";
+import cvFile from "../assets/Chheun_Seangmeng_CV.pdf";
 import projectQr from "../assets/poster.webp";
 import projectInventory from "../assets/vc-png.webp";
 import projectVoice from "../assets/python-algorithm.webp";
