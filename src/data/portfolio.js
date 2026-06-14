@@ -95,7 +95,7 @@ export const portfolioData = {
           "​​ឆ្នាំនៃបទពិសោធន៍ក្នុងការសរសេរកូដ",
         ),
       },
-      { value: "12+", label: t("Company's Projects completed", "គម្រោងក្រុមហ៊ុនបានបញ្ចប់") },
+      { value: "4+", label: t("Company's Projects completed", "គម្រោងក្រុមហ៊ុនបានបញ្ចប់") },
       {
         value: "15+",
         label: t("Technologies explored", "បច្ចេកវិទ្យាដែលបានសិក្សា"),
@@ -414,7 +414,7 @@ export const portfolioData = {
         "អ្នកបានផ្ញើសារដោយជោគជ័យហើយ!",
       ),
     },
-    email: "seavsmoker@gmail.com",
+    email: "mengfreelancer@gmail.com",
     location: "Phnom Penh, Cambodia",
     socials: [
       { label: "GitHub", url: "https://github.com/chheunseangmeng" },

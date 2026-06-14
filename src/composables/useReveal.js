@@ -24,7 +24,6 @@ export function useReveal(selector = "[data-reveal]") {
     );
 
    elements.forEach((element, index) => {
-  // Faster stagger - 60ms between each element
   const delay = `${index * 10}ms`;
   element.style.setProperty("--reveal-delay", delay);
   observer.observe(element);
