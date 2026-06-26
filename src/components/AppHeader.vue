@@ -1,5 +1,6 @@
 <script setup>
 import { ref, onMounted } from "vue";
+import { useRouter } from "vue-router";
 
 // Use public folder path
 const backgroundMusic = "/audio/champey.mp3";
@@ -29,7 +30,21 @@ const props = defineProps({
 
 const emit = defineEmits(["toggle-theme", "toggle-locale", "toggle-menu", "close-menu"]);
 
+const router = useRouter();
 const label = (item) => item[props.locale] || item.en;
+
+function navigateTo(item) {
+  if (item.id === "services") {
+    router.push("/services");
+  } else {
+    router.push("/");
+    if (item.id !== "home") {
+      setTimeout(() => {
+        document.getElementById(item.id)?.scrollIntoView({ behavior: "smooth" });
+      }, 100);
+    }
+  }
+}
 
 // Music/Audio state
 const isMuted = ref(false); // false = playing, true = paused
@@ -92,7 +107,7 @@ onMounted(() => {
 
 <template>
   <header class="site-header">
-    <a class="brand-mark" href="#home" @click="$emit('close-menu')"></a>
+    <a class="brand-mark" href="#" @click.prevent="() => { router.push('/'); $emit('close-menu') }"></a>
 
     <nav class="site-nav" :class="{ 'is-open': isMenuOpen }">
       <a
@@ -100,8 +115,8 @@ onMounted(() => {
         :key="item.id"
         class="site-nav__link"
         :class="{ 'is-active': activeSection === item.id }"
-        :href="`#${item.id}`"
-        @click="$emit('close-menu')"
+        href="#"
+        @click.prevent="navigateTo(item)"
       >
         {{ label(item) }}
       </a>

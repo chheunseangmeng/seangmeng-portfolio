@@ -1,17 +1,18 @@
 <script setup>
 import { computed, onBeforeUnmount, onMounted, ref, watch, nextTick } from "vue";
+import { useRoute } from "vue-router";
 import AppHeader from "../components/AppHeader.vue";
 import HeroSection from "../components/HeroSection.vue";
 import AboutSection from "../components/AboutSection.vue";
 import SkillsSection from "../components/SkillsSection.vue";
 import ExperienceSection from "../components/ExperienceSection.vue";
-import ProjectsSection from "../components/ProjectsSection.vue";
 import GallerySection from "../components/GallerySection.vue";
 import ContactSection from "../components/ContactSection.vue";
 import AppToast from "../components/AppToast.vue";
 import { portfolioData } from "../data/portfolio";
 import { useReveal } from "../composables/useReveal";
 
+const route = useRoute();
 const locale = ref(localStorage.getItem("portfolio-locale") || "en");
 const theme = ref("dark");
 const isMenuOpen = ref(false);
@@ -24,7 +25,11 @@ let toastTimer;
 
 useReveal();
 
-const navItems = computed(() => portfolioData.nav);
+const navItems = computed(() => {
+  const items = [...portfolioData.nav];
+  items.push({ id: "services", en: "Services", km: "សេវាកម្ម" });
+  return items;
+});
 const isDark = computed(() => theme.value === "dark");
 
 function toggleTheme() {
@@ -54,7 +59,7 @@ function notify(message) {
 function setupScrollSpy() {
   nextTick(() => {
     const sections = document.querySelectorAll("section[id]");
-    
+
     console.log("Sections found:", sections.length);
     sections.forEach(section => {
       console.log("Section ID:", section.id);
@@ -118,14 +123,14 @@ function handleHeaderScroll() {
 // Starry night functions
 function createStars() {
   if (document.documentElement.dataset.theme !== "dark") return;
-  
+
   const existingStars = document.querySelector(".stars");
   if (existingStars) existingStars.remove();
-  
+
   const starsContainer = document.createElement("div");
   starsContainer.className = "stars";
   document.body.appendChild(starsContainer);
-  
+
   for (let i = 0; i < 250; i++) {
     const star = document.createElement("div");
     star.className = "star";
@@ -138,7 +143,7 @@ function createStars() {
     star.style.animationDelay = `${Math.random() * 5}s`;
     starsContainer.appendChild(star);
   }
-  
+
   for (let i = 0; i < 8; i++) {
     const shootingStar = document.createElement("div");
     shootingStar.className = "shooting-star";
@@ -160,7 +165,7 @@ function removeStarsAndMoon() {
 watch(theme, (value) => {
   document.documentElement.dataset.theme = value;
   localStorage.setItem("portfolio-theme", value);
-  
+
   if (value === "dark") {
     setTimeout(() => {
       createStars();
@@ -175,15 +180,26 @@ watch(locale, (value) => {
   localStorage.setItem("portfolio-locale", value);
 });
 
+watch(
+  () => route.path,
+  (path) => {
+    if (path === "/services") {
+      activeSection.value = "services";
+    } else {
+      setupScrollSpy();
+    }
+  }
+);
+
 onMounted(() => {
   document.documentElement.dataset.theme = theme.value;
   document.documentElement.lang = locale.value;
   setupScrollSpy();
-  
+
   if (theme.value === "dark") {
     createStars();
   }
-  
+
   window.addEventListener("scroll", handleScroll);
   window.addEventListener("scroll", handleHeaderScroll);
 });
@@ -216,19 +232,20 @@ onBeforeUnmount(() => {
       @close-menu="closeMenu"
     />
 
-    <main class="page-frame" @click="closeMenu">
+    <main v-if="route.path === '/'" class="page-frame" @click="closeMenu">
       <HeroSection :locale="locale" :hero="portfolioData.hero" />
       <AboutSection :locale="locale" :about="portfolioData.about" />
       <SkillsSection :locale="locale" :skills="portfolioData.skills" />
-      <ExperienceSection :locale="locale" :experience="portfolioData.experience" />
-      <ProjectsSection :locale="locale" :projects="portfolioData.projects" @notify="notify" />
+      <ExperienceSection :locale="locale" :experience="portfolioData.experience" :projects="portfolioData.projects" />
       <GallerySection :locale="locale" :gallery="portfolioData.gallery" />
       <ContactSection :locale="locale" :contact="portfolioData.contact" @notify="notify" />
     </main>
-    
+
+    <router-view v-else />
+
     <AppToast :message="toastMessage" />
 
-    <button v-if="isClick" class="scroll-to-top" @click="scrollToTop">
+    <button v-if="isClick && route.path === '/'" class="scroll-to-top" @click="scrollToTop">
       <i class="fa-solid fa-angles-up"></i>
     </button>
   </div>

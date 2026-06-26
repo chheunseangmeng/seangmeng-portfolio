@@ -34,7 +34,6 @@ export const portfolioData = {
     { id: "about", ...t("About", "អំពីខ្ញុំ") },
     { id: "skills", ...t("Skills", "ជំនាញ") },
     { id: "experience", ...t("Experience", "បទពិសោធន៍") },
-    { id: "projects", ...t("Projects", "គម្រោង") },
     { id: "contact", ...t("Contact", "ទំនាក់ទំនង") },
   ],
   hero: {
