@@ -1,5 +1,5 @@
 <script setup>
-import { ref, onMounted } from "vue";
+import { ref } from "vue";
 import { useRouter } from "vue-router";
 
 // Use public folder path
@@ -47,62 +47,35 @@ function navigateTo(item) {
 }
 
 // Music/Audio state
-const isMuted = ref(false); // false = playing, true = paused
+const isMuted = ref(true); // true = paused, false = playing
+
+// Create audio element on demand
 let audio = null;
 
+function ensureAudio() {
+  if (!audio) {
+    audio = new Audio(backgroundMusic);
+    audio.loop = true;
+    audio.volume = 0.5;
+  }
+}
+
 function toggleMusic() {
-  if (!audio) return;
+  ensureAudio();
   
   if (isMuted.value) {
-    // Unmute = Resume playing
-    audio.play()
-      .then(() => {
-        isMuted.value = false;
-        console.log('Music resumed');
-      })
-      .catch(error => {
-        console.log("Failed to resume:", error);
-      });
+    audio.play().then(() => {
+      isMuted.value = false;
+      console.log('Music started');
+    }).catch(error => {
+      console.log("Failed to play:", error);
+    });
   } else {
-    // Mute = Pause
     audio.pause();
     isMuted.value = true;
     console.log('Music paused');
   }
 }
-
-// Auto-play music when page loads
-onMounted(() => {
-  // Create audio element
-  audio = new Audio(backgroundMusic);
-  audio.loop = true;
-  audio.volume = 0.5;
-  
-  // Try to play automatically
-  audio.play()
-    .then(() => {
-      console.log("Auto-play started successfully");
-      isMuted.value = false;
-    })
-    .catch(error => {
-      console.log("Auto-play blocked by browser:", error);
-      isMuted.value = true;
-      
-      // Try to play on first user click anywhere
-      const startMusic = () => {
-        audio.play()
-          .then(() => {
-            console.log("Music started after user click");
-            isMuted.value = false;
-            document.removeEventListener('click', startMusic);
-            document.removeEventListener('touchstart', startMusic);
-          })
-          .catch(e => console.log('Still blocked:', e));
-      };
-      document.addEventListener('click', startMusic);
-      document.addEventListener('touchstart', startMusic);
-    });
-});
 </script>
 
 <template>

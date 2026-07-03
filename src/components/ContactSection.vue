@@ -96,8 +96,6 @@ ${form.message}
   <section id="contact" class="panel section-block contact-block">
     <SectionTitle
       :eyebrow="text(contact.heading.eyebrow)"
-      :title="text(contact.heading.title)"
-      :subtitle="text(contact.heading.subtitle)"
       align="left"
     />
 

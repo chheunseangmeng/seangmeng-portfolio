@@ -30,7 +30,7 @@ const text = (value) => value[props.locale] || value.en;
           class="animated-button"
           :href="hero.cvUrl"
           target="_blank"
-          rel="noreferrer"
+          rel="noopener noreferrer"
         >
           <span class="text">{{ text(hero.secondaryCta) }}</span>
           <span class="circle"></span>

@@ -1,10 +1,6 @@
 import profileImage from "../assets/pf.webp";
-import cvFile from "../assets/Chheun_Seangmeng_CV.pdf";
 import projectQr from "../assets/poster.webp";
 import projectInventory from "../assets/vc-png.webp";
-import projectVoice from "../assets/python-algorithm.webp";
-import projectExpense from "../assets/java-script.webp";
-import projectSport from "../assets/web-design.webp";
 import projectiTCare from "../assets/itcare.webp";
 import galleryAchievement from "../assets/image/Achievement.webp";
 import galleryCameraman from "../assets/image/Camerman.webp";
@@ -49,7 +45,7 @@ export const portfolioData = {
     ),
     primaryCta: t("Start a Project", "ចាប់ផ្តើមគម្រោង"),
     secondaryCta: t("Download CV", "ទាញយកប្រវត្តិរូប"),
-    cvUrl: cvFile,
+    cvUrl: "/Chheun_Seangmeng_CV.pdf",
     image: profileImage,
     floatingSkills: [
       {
@@ -306,39 +302,6 @@ export const portfolioData = {
         cta: t("View Project", "មើលគម្រោង"),
         url: "",
       },
-      {
-        image: projectVoice,
-        title: t("Voice-Controlled Music", "កម្មវិធីចាក់តន្ត្រីដោយសំឡេង"),
-        description: t(
-          "A Python-based music player with speech recognition controls.",
-          "កម្មវិធីចាក់តន្ត្រីដោយ Python ដែលគ្រប់គ្រងដោយការទទួលស្គាល់សំឡេង។",
-        ),
-        tags: ["Python", "Tkinter", "AI"],
-        cta: t("View Project", "មើលគម្រោង"),
-        url: "",
-      },
-      {
-        image: projectExpense,
-        title: t("Expense Tracker App", "កម្មវិធីតាមដានការចំណាយ"),
-        description: t(
-          "A responsive app to track income, expense, and balance with clarity.",
-          "កម្មវិធីឆ្លើយតបសម្រាប់តាមដានចំណូល ចំណាយ និងសមតុល្យយ៉ាងច្បាស់។",
-        ),
-        tags: ["HTML", "CSS", "JavaScript"],
-        cta: t("Open Demo", "បើក Demo"),
-        url: "https://g2-a-expense-tracker-app.vercel.app/",
-      },
-      {
-        image: projectSport,
-        title: t("PNC Sport Club Website", "គេហទំព័រក្លឹបកីឡា PNC"),
-        description: t(
-          "A responsive website designed with SASS and modern web standards.",
-          "គេហទំព័រឆ្លើយតបដែលរចនាដោយ SASS និងស្តង់ដារគេហទំព័រសម័យទំនើប។",
-        ),
-        tags: ["HTML", "SASS", "Figma"],
-        cta: t("Open Demo", "បើក Demo"),
-        url: "https://sport-club-webproject.netlify.app/",
-      },
     ],
   },
   gallery: {
@@ -382,14 +345,6 @@ export const portfolioData = {
   contact: {
     heading: {
       eyebrow: t("Contact", "ទំនាក់ទំនង"),
-      title: t(
-        "Let's build something thoughtful together",
-        "តោះបង្កើតអ្វីមួយដែលមានគំនិតជាមួយគ្នា",
-      ),
-      subtitle: t(
-        "Reach out for freelance work, collaborations, or product ideas.",
-        "ទាក់ទងមកសម្រាប់ការងារ ការងារឯករាជ្យ ការសហការ ឬគំនិតផលិតផល។",
-      ),
     },
     invite: {
       title: t("Open to opportunities", "បើកទូលាយចំពោះឱកាស"),
