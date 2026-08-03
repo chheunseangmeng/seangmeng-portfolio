@@ -30,7 +30,7 @@ function repeated(images) {
     <div class="gallery-marquee" data-reveal="up">
       <div class="gallery-track">
         <figure v-for="(image, index) in repeated(gallery.rows[0])" :key="`${image.alt}-${index}`" class="gallery-card">
-          <img :src="image.src" :alt="image.alt" />
+          <img :src="image.src" :alt="image.alt" loading="lazy" decoding="async" />
         </figure>
       </div>
     </div>
@@ -38,7 +38,7 @@ function repeated(images) {
     <div class="gallery-marquee gallery-marquee--reverse" data-reveal="up">
       <div class="gallery-track">
         <figure v-for="(image, index) in repeated(gallery.rows[1])" :key="`${image.alt}-${index}`" class="gallery-card">
-          <img :src="image.src" :alt="image.alt" />
+          <img :src="image.src" :alt="image.alt" loading="lazy" decoding="async" />
         </figure>
       </div>
     </div>

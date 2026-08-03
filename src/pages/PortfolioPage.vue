@@ -120,59 +120,9 @@ function handleHeaderScroll() {
   }
 }
 
-// Starry night functions
-function createStars() {
-  if (document.documentElement.dataset.theme !== "dark") return;
-
-  const existingStars = document.querySelector(".stars");
-  if (existingStars) existingStars.remove();
-
-  const starsContainer = document.createElement("div");
-  starsContainer.className = "stars";
-  document.body.appendChild(starsContainer);
-
-  for (let i = 0; i < 250; i++) {
-    const star = document.createElement("div");
-    star.className = "star";
-    const size = Math.random() * 3 + 1;
-    star.style.width = `${size}px`;
-    star.style.height = `${size}px`;
-    star.style.left = `${Math.random() * 100}%`;
-    star.style.top = `${Math.random() * 100}%`;
-    star.style.setProperty("--duration", `${Math.random() * 3 + 2}s`);
-    star.style.animationDelay = `${Math.random() * 5}s`;
-    starsContainer.appendChild(star);
-  }
-
-  for (let i = 0; i < 8; i++) {
-    const shootingStar = document.createElement("div");
-    shootingStar.className = "shooting-star";
-    shootingStar.style.top = `${Math.random() * 60}%`;
-    shootingStar.style.left = `${Math.random() * 80 + 10}%`;
-    shootingStar.style.animationDelay = `${Math.random() * 20}s`;
-    shootingStar.style.animationDuration = `${Math.random() * 5 + 6}s`;
-    document.body.appendChild(shootingStar);
-  }
-}
-
-function removeStarsAndMoon() {
-  const stars = document.querySelector(".stars");
-  const shootingStars = document.querySelectorAll(".shooting-star");
-  if (stars) stars.remove();
-  shootingStars.forEach(star => star.remove());
-}
-
 watch(theme, (value) => {
   document.documentElement.dataset.theme = value;
   localStorage.setItem("portfolio-theme", value);
-
-  if (value === "dark") {
-    setTimeout(() => {
-      createStars();
-    }, 100);
-  } else {
-    removeStarsAndMoon();
-  }
 });
 
 watch(locale, (value) => {
@@ -196,10 +146,6 @@ onMounted(() => {
   document.documentElement.lang = locale.value;
   setupScrollSpy();
 
-  if (theme.value === "dark") {
-    createStars();
-  }
-
   window.addEventListener("scroll", handleScroll);
   window.addEventListener("scroll", handleHeaderScroll);
 });
@@ -209,7 +155,6 @@ onBeforeUnmount(() => {
     sectionObserver.disconnect();
   }
   clearTimeout(toastTimer);
-  removeStarsAndMoon();
   window.removeEventListener("scroll", handleScroll);
   window.removeEventListener("scroll", handleHeaderScroll);
 });

@@ -53,7 +53,7 @@ function handleProjectAction(project) {
       <div class="project-grid">
         <article v-for="project in projects.items" :key="project.title.en" class="project-card" data-reveal="up">
           <div class="project-card__media">
-            <img :src="project.image" :alt="text(project.title)" />
+            <img :src="project.image" :alt="text(project.title)" loading="lazy" decoding="async" />
             <button 
               class="animated-button project-card__action" 
               type="button" 
