@@ -1,9 +1,5 @@
 <script setup>
 import { ref } from "vue";
-import { useRouter } from "vue-router";
-
-// Use public folder path
-const backgroundMusic = "/audio/champey.mp3";
 
 const props = defineProps({
   navItems: {
@@ -30,31 +26,25 @@ const props = defineProps({
 
 const emit = defineEmits(["toggle-theme", "toggle-locale", "toggle-menu", "close-menu"]);
 
-const router = useRouter();
 const label = (item) => item[props.locale] || item.en;
 
 function navigateTo(item) {
   if (item.id === "services") {
-    router.push("/services");
+    window.location.href = "https://codejor.vercel.app/";
+  } else if (item.id === "home") {
+    window.scrollTo({ top: 0, behavior: "smooth" });
   } else {
-    router.push("/");
-    if (item.id !== "home") {
-      setTimeout(() => {
-        document.getElementById(item.id)?.scrollIntoView({ behavior: "smooth" });
-      }, 100);
-    }
+    document.getElementById(item.id)?.scrollIntoView({ behavior: "smooth" });
   }
 }
 
-// Music/Audio state
-const isMuted = ref(true); // true = paused, false = playing
+const isMuted = ref(true);
 
-// Create audio element on demand
 let audio = null;
 
 function ensureAudio() {
   if (!audio) {
-    audio = new Audio(backgroundMusic);
+    audio = new Audio("/audio/champey.mp3");
     audio.loop = true;
     audio.volume = 0.5;
   }
@@ -80,7 +70,7 @@ function toggleMusic() {
 
 <template>
   <header class="site-header">
-    <a class="brand-mark" href="#" @click.prevent="() => { router.push('/'); $emit('close-menu') }"></a>
+    <a class="brand-mark" href="#" @click.prevent="() => { window.scrollTo({ top: 0, behavior: 'smooth' }); $emit('close-menu') }"></a>
 
     <nav class="site-nav" :class="{ 'is-open': isMenuOpen }">
       <a
@@ -88,7 +78,9 @@ function toggleMusic() {
         :key="item.id"
         class="site-nav__link"
         :class="{ 'is-active': activeSection === item.id }"
-        href="#"
+        :href="item.id === 'services' ? 'https://codejor.vercel.app/' : '#'"
+        :target="item.id === 'services' ? '_blank' : undefined"
+        :rel="item.id === 'services' ? 'noopener noreferrer' : undefined"
         @click.prevent="navigateTo(item)"
       >
         {{ label(item) }}
@@ -96,7 +88,6 @@ function toggleMusic() {
     </nav>
 
     <div class="site-header__actions">
-      <!-- Language Toggle with Flag Icons -->
       <button class="toggle-chip flag-button" type="button" @click="$emit('toggle-locale')">
         <img 
           v-if="locale === 'en'" 
@@ -113,25 +104,23 @@ function toggleMusic() {
           height="15"
         />
       </button>
-      
 
-            <input type="checkbox" id="checkboxInput" :checked="isMuted" @change="toggleMusic">
-          <label for="checkboxInput" class="toggleSwitch">
-            <div class="speaker">
-              <svg xmlns="http://www.w3.org/2000/svg" version="1.0" viewBox="0 0 75 75">
-                <path d="M39.389,13.769 L22.235,28.606 L6,28.606 L6,47.699 L21.989,47.699 L39.389,62.75 L39.389,13.769z" stroke="currentColor" stroke-width="5" stroke-linejoin="round" fill="currentColor"></path>
-                <path d="M48,27.6a19.5,19.5 0 0 1 0,21.4M55.1,20.5a30,30 0 0 1 0,35.6M61.6,14a38.8,38.8 0 0 1 0,48.6" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round"></path>
-              </svg>
-            </div>
-            <div class="mute-speaker">
-              <svg version="1.0" viewBox="0 0 75 75" stroke="currentColor" stroke-width="5">
-                <path d="m39,14-17,15H6V48H22l17,15z" fill="currentColor" stroke-linejoin="round"></path>
-                <path d="m49,26 20,24m0-24-20,24" fill="currentColor" stroke-linecap="round"></path>
-              </svg>
-            </div>
-          </label>
+      <input type="checkbox" id="checkboxInput" :checked="isMuted" @change="toggleMusic">
+      <label for="checkboxInput" class="toggleSwitch">
+        <div class="speaker">
+          <svg xmlns="http://www.w3.org/2000/svg" version="1.0" viewBox="0 0 75 75">
+            <path d="M39.389,13.769 L22.235,28.606 L6,28.606 L6,47.699 L21.989,47.699 L39.389,62.75 L39.389,13.769z" stroke="currentColor" stroke-width="5" stroke-linejoin="round" fill="currentColor"></path>
+            <path d="M48,27.6a19.5,19.5 0 0 1 0,21.4M55.1,20.5a30,30 0 0 1 0,35.6M61.6,14a38.8,38.8 0 0 1 0,48.6" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round"></path>
+          </svg>
+        </div>
+        <div class="mute-speaker">
+          <svg version="1.0" viewBox="0 0 75 75" stroke="currentColor" stroke-width="5">
+            <path d="m39,14-17,15H6V48H22l17,15z" fill="currentColor" stroke-linejoin="round"></path>
+            <path d="m49,26 20,24m0-24-20,24" fill="currentColor" stroke-linecap="round"></path>
+          </svg>
+        </div>
+      </label>
 
-      <!-- Plane Switch for Theme Toggle -->
       <label class="plane-switch">
         <input type="checkbox" :checked="!isDark" @change="$emit('toggle-theme')">
         <div>

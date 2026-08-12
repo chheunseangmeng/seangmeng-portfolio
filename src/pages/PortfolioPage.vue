@@ -1,6 +1,5 @@
 <script setup>
 import { computed, onBeforeUnmount, onMounted, ref, watch, nextTick } from "vue";
-import { useRoute } from "vue-router";
 import AppHeader from "../components/AppHeader.vue";
 import HeroSection from "../components/HeroSection.vue";
 import AboutSection from "../components/AboutSection.vue";
@@ -12,7 +11,6 @@ import AppToast from "../components/AppToast.vue";
 import { portfolioData } from "../data/portfolio";
 import { useReveal } from "../composables/useReveal";
 
-const route = useRoute();
 const locale = ref(localStorage.getItem("portfolio-locale") || "en");
 const theme = ref("dark");
 const isMenuOpen = ref(false);
@@ -60,11 +58,6 @@ function setupScrollSpy() {
   nextTick(() => {
     const sections = document.querySelectorAll("section[id]");
 
-    console.log("Sections found:", sections.length);
-    sections.forEach(section => {
-      console.log("Section ID:", section.id);
-    });
-
     if (sectionObserver) {
       sectionObserver.disconnect();
     }
@@ -74,7 +67,6 @@ function setupScrollSpy() {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             const sectionId = entry.target.id;
-            console.log("Active section:", sectionId);
             activeSection.value = sectionId;
           }
         });
@@ -91,7 +83,6 @@ function setupScrollSpy() {
   });
 }
 
-// Scroll to top function
 function scrollToTop() {
   window.scrollTo({
     top: 0,
@@ -99,7 +90,6 @@ function scrollToTop() {
   });
 }
 
-// Show/hide button based on scroll position
 function handleScroll() {
   if (window.scrollY > 300) {
     isClick.value = true;
@@ -108,7 +98,6 @@ function handleScroll() {
   }
 }
 
-// Handle header scroll
 function handleHeaderScroll() {
   const header = document.querySelector('.site-header');
   if (header) {
@@ -129,17 +118,6 @@ watch(locale, (value) => {
   document.documentElement.lang = value;
   localStorage.setItem("portfolio-locale", value);
 });
-
-watch(
-  () => route.path,
-  (path) => {
-    if (path === "/services") {
-      activeSection.value = "services";
-    } else {
-      setupScrollSpy();
-    }
-  }
-);
 
 onMounted(() => {
   document.documentElement.dataset.theme = theme.value;
@@ -177,7 +155,7 @@ onBeforeUnmount(() => {
       @close-menu="closeMenu"
     />
 
-    <main v-if="route.path === '/'" class="page-frame" @click="closeMenu">
+    <main class="page-frame" @click="closeMenu">
       <HeroSection :locale="locale" :hero="portfolioData.hero" />
       <AboutSection :locale="locale" :about="portfolioData.about" />
       <SkillsSection :locale="locale" :skills="portfolioData.skills" />
@@ -186,11 +164,9 @@ onBeforeUnmount(() => {
       <ContactSection :locale="locale" :contact="portfolioData.contact" @notify="notify" />
     </main>
 
-    <router-view v-else />
-
     <AppToast :message="toastMessage" />
 
-    <button v-if="isClick && route.path === '/'" class="scroll-to-top" @click="scrollToTop">
+    <button v-if="isClick" class="scroll-to-top" @click="scrollToTop">
       <i class="fa-solid fa-angles-up"></i>
     </button>
   </div>

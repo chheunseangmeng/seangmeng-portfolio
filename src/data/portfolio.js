@@ -2,6 +2,7 @@ import profileImage from "../assets/pf.webp";
 import projectQr from "../assets/poster.webp";
 import projectInventory from "../assets/vc-png.webp";
 import projectiTCare from "../assets/itcare.webp";
+import projectCodejor from "../assets/codejor.webp";
 import galleryAchievement from "../assets/image/Achievement.webp";
 import galleryCameraman from "../assets/image/Camerman.webp";
 import galleryExchangeProgram from "../assets/image/exchange program.webp";
@@ -87,10 +88,10 @@ export const portfolioData = {
         value: "3+",
         label: t(
           "Years Experience of coding",
-          "​​ឆ្នាំនៃបទពិសោធន៍ក្នុងការសរសេរកូដ",
+          "ឆ្នាំនៃបទពិសោធន៍ក្នុងការសរសេរកូដ",
         ),
       },
-      { value: "4+", label: t("Company's Projects completed", "គម្រោងក្រុមហ៊ុនបានបញ្ចប់") },
+      { value: "10+", label: t("Company's Projects completed", "គម្រោងក្រុមហ៊ុនបានបញ្ចប់") },
       {
         value: "15+",
         label: t("Technologies explored", "បច្ចេកវិទ្យាដែលបានសិក្សា"),
@@ -109,7 +110,7 @@ export const portfolioData = {
 
     groups: [
       {
-        title: t("Programming Languages", "ភាសា សរសេរ​កម្មវិធី"),
+        title: t("Programming Languages", "ភាសា សរសេរកម្មវិធី"),
         items: [
           {
             name: "HTML",
@@ -223,6 +224,15 @@ export const portfolioData = {
       ),
     },
     items: [
+       {
+        date: "2026 - Present",
+        role: t("Bachelor Degree, Computer Science", "សិក្សាបរិញ្ញាបត្រផ្នែកវិទ្យាសាស្ត្រកុំព្យូទ័រ"),
+        company: "AGA Institute",
+        description: t(
+          "Computer Science student at AGA Institute, learning programming, software development, databases, networking, and web technologies through practical projects.",
+          "និស្សិតវិទ្យាសាស្ត្រកុំព្យូទ័រនៅវិទ្យាស្ថាន AGA សិក្សាពីការសរសេរកម្មវិធី ការអភិវឌ្ឍន៍កម្មវិធី មូលដ្ឋានទិន្នន័យ បណ្តាញ និងបច្ចេកវិទ្យាគេហទំព័រតាមរយៈគម្រោងជាក់ស្តែង។",
+        ),
+      },
       {
         date: "Feb 2026 - Present",
         role: t("Web Developer", "អ្នកអភិវឌ្ឍគេហទំព័រ"),
@@ -243,11 +253,11 @@ export const portfolioData = {
       },
       {
         date: "2023 - 2025",
-        role: t("Computer Science Student", "និស្សិតវិទ្យាសាស្ត្រកុំព្យូទ័រ"),
+        role: t("Associate Degree, Computer Science", "សិក្សាបរិញ្ញាបត្ររងផ្នែកវិទ្យាសាស្ត្រកុំព្យូទ័រ"),
         company: "Passerelles Numeriques Cambodia",
         description: t(
-          "At PNC, I learned Web Development', database management, and how to build full stack applications, while also improving my soft skills like teamwork, communication, and problem-solving.",
-          "ឆ្លើយតបនឹងសំណើទិន្នន័យ និងស្រង់ព័ត៌មានពីឃ្លាំងទិន្នន័យដោយប្រើ SQL Server, SSMS, SSRS, SSIS និង Python។",
+          "At PNC, I learned Web Development, database management, and how to build full stack applications, while also improving my soft skills like teamwork, communication, and problem-solving.",
+          "នៅ PNC ខ្ញុំបានរៀនអភិវឌ្ឍន៍គេហទំព័រ ការគ្រប់គ្រងមូលដ្ឋានទិន្នន័យ និងរបៀបបង្កើតកម្មវិធី full stack ក៏ដូចជាបង្កើតជំនាញរលូន ដូចជាការងារជាក្រុម ការទំនាក់ទំនង និងការដោះស្រាយបញ្ហា។",
         ),
       },
     ],
@@ -269,6 +279,17 @@ export const portfolioData = {
       "គម្រោងនេះមិនទាន់បានបង្ហោះនៅឡើយទេ",
     ),
     items: [
+       {
+        image: projectCodejor,
+        title: t("Code-Jor", "កូដជ័រ"),
+        description: t(
+          "A website that offer digital services such Website, Landing page, Web App, Poster Design, and Video editing.",
+          "គេហទំព័រមួយដែលផ្តល់ជូននូវសេវាកម្មឌីជីថលដូចជា គេហទំព័រ ទំព័រផលិតផល កម្មវិធីគេហទំព័រ ការរចនាផ្ទាំងរូបភាព និងការកែសម្រួលវីដេអូ។",
+        ),
+        tags: ["React JS", "JSON Data"],
+        cta: t("Open Demo", "បើក Demo"),
+        url: "https://codejor.vercel.app/",
+      },
       {
         image: projectiTCare,
         title: t("iTCare Insure", "ធានានិងតំហែទាំអាយធី"),
@@ -362,7 +383,7 @@ export const portfolioData = {
       nameLabel: t("Your name", "ឈ្មោះរបស់អ្នក"),
       emailLabel: t("Your email", "អ៊ីមែលរបស់អ្នក"),
       messageLabel: t("Your message", "សាររបស់អ្នក"),
-      button: t("Send via telegram app", "ផ្ញើតាមកម្មវិធីតេឡេក្រាម"),
+      button: t("Send Message", "ដាក់ផ្ញើ"),
       successMessage: t(
         "You have successfully sent the message!",
         "អ្នកបានផ្ញើសារដោយជោគជ័យហើយ!",

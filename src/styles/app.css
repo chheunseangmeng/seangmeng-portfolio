@@ -63,7 +63,7 @@ html {
 
 body {
   margin: 0;
-  font-family: "Comfortaa", "Battambang", sans-serif;
+  font-family: "Comfortaa", "Kantumruy Pro", sans-serif;
   color: var(--text);
 }
 
@@ -141,7 +141,7 @@ body {
 [lang="km"] body,
 :root[lang="km"] body,
 .section-heading__eyebrow {
-  font-family: "Battambang", "Comfortaa", sans-serif;
+  font-family: "Kantumruy Pro", "Comfortaa", sans-serif;
 }
 
 #app {
@@ -151,7 +151,7 @@ body {
 .portfolio-shell {
   position: relative;
   isolation: isolate;
-  overflow: clip;
+  overflow-x: clip;
 }
 
 .ambient {
@@ -1180,7 +1180,7 @@ body {
   border-radius: 1rem;
   background: rgba(255, 255, 255, 0.05);
   color: var(--text);
-  font-family: "Comfortaa", "Battambang", sans-serif;
+  font-family: "Comfortaa", "Kantumruy Pro", sans-serif;
   font-size: 0.9rem;
   transition: all 0.3s ease;
 }
@@ -1312,7 +1312,7 @@ body {
 
 /* Reveal Animations */
 [data-reveal] {
-  opacity: 0;
+  opacity: 1;
   will-change: transform, opacity;
   transition: 
     opacity 0.8s cubic-bezier(0.2, 0.9, 0.4, 1.1) var(--reveal-delay, 0ms),
