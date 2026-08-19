@@ -25,8 +25,8 @@ const form = reactive({
 const text = (value) => value[props.locale] || value.en;
 
 // Telegram Bot Configuration
-const TELEGRAM_BOT_TOKEN = "7559810524:AAHEU3Lu-ynrJ7it5WX7oh2hrOwE_dZjzgE";
-const TELEGRAM_CHAT_ID = "-1002887359185";
+const TELEGRAM_BOT_TOKEN = import.meta.env.VITE_TELEGRAM_BOT_TOKEN;
+const TELEGRAM_CHAT_ID = import.meta.env.VITE_TELEGRAM_CHAT_ID;
 
 // Email validation function
 function validateEmail(email) {
