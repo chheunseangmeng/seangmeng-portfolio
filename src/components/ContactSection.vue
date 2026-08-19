@@ -24,10 +24,6 @@ const form = reactive({
 
 const text = (value) => value[props.locale] || value.en;
 
-// Telegram Bot Configuration
-const TELEGRAM_BOT_TOKEN = import.meta.env.VITE_TELEGRAM_BOT_TOKEN;
-const TELEGRAM_CHAT_ID = import.meta.env.VITE_TELEGRAM_CHAT_ID;
-
 // Email validation function
 function validateEmail(email) {
   const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -59,7 +55,7 @@ ${form.message}
 📅 *Sent:* ${new Date().toLocaleString()}
   `;
 
-  const url = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`;
+  const url = `/api/send-telegram`;
 
   try {
     const response = await fetch(url, {
@@ -68,13 +64,15 @@ ${form.message}
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        chat_id: TELEGRAM_CHAT_ID,
-        text: message,
-        parse_mode: "Markdown",
+        name: form.name,
+        email: form.email,
+        message: message.trim(),
       }),
     });
 
-    if (response.ok) {
+    const data = await response.json();
+
+    if (response.ok && data.success) {
       emit("notify", text(props.contact.form.successMessage));
       // Reset form
       form.name = "";
