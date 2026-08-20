@@ -1,3 +1,30 @@
+const rateLimitMap = new Map();
+const RATE_LIMIT_WINDOW = 10 * 60 * 1000;
+const MAX_REQUESTS = 5;
+
+function getClientIp(req) {
+  return (
+    req.headers["x-forwarded-for"]?.split(",")[0].trim() ||
+    req.headers["x-real-ip"] ||
+    "unknown"
+  );
+}
+
+function isRateLimited(ip) {
+  const now = Date.now();
+  const requests = rateLimitMap.get(ip) || [];
+
+  const recentRequests = requests.filter((time) => now - time < RATE_LIMIT_WINDOW);
+
+  if (recentRequests.length >= MAX_REQUESTS) {
+    return true;
+  }
+
+  recentRequests.push(now);
+  rateLimitMap.set(ip, recentRequests);
+  return false;
+}
+
 export default async function handler(req, res) {
   res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader("Access-Control-Allow-Methods", "POST, OPTIONS");
@@ -10,6 +37,14 @@ export default async function handler(req, res) {
   if (req.method !== "POST") {
     res.setHeader("Allow", ["POST"]);
     return res.status(405).json({ error: "Method not allowed" });
+  }
+
+  const clientIp = getClientIp(req);
+
+  if (isRateLimited(clientIp)) {
+    return res
+      .status(429)
+      .json({ error: "Too many requests. Please try again later." });
   }
 
   const { name, email, message } = req.body;
