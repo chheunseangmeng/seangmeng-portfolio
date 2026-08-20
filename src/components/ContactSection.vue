@@ -31,7 +31,8 @@ function validateEmail(email) {
 }
 
 async function submitForm() {
-  // Validation
+  if (form.isSending) return;
+
   if (!form.name || !form.email || !form.message) {
     emit("notify", "Please fill in all fields");
     return;
