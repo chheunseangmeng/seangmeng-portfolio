@@ -65,9 +65,8 @@ export default async function handler(req, res) {
 📥 *New Portfolio Contact* 📥
 
 👤 *Name:* ${name}
-${contactLabel}:* ${contact}
-💬 *Message:* 
-${message}
+${contactLabel} ${contact}
+💬 *Message:* ${message}
 
 📅 *Sent:* ${new Date().toLocaleString("en-US", {
     timeZone: "Asia/Phnom_Penh",
