@@ -17,39 +17,59 @@ const emit = defineEmits(["notify"]);
 
 const form = reactive({
   name: "",
-  email: "",
+  contact: "",
   message: "",
   isSending: false,
+  errors: {},
 });
 
 const text = (value) => value[props.locale] || value.en;
 
-// Email validation function
-function validateEmail(email) {
-  const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  return re.test(email);
+// Contact validation - accepts Gmail or phone number
+function validateContact(value) {
+  const gmailRegex = /^[^\s@]+@gmail\.com$/;
+  const phoneRegex = /^\+?[0-9]{9,11}$/;
+  const digitsOnly = /^[0-9]+$/;
+
+  if (gmailRegex.test(value)) {
+    return { valid: true, type: "email" };
+  }
+  if (phoneRegex.test(value)) {
+    return { valid: true, type: "telegram" };
+  }
+  return { valid: false, type: "unknown" };
 }
 
 async function submitForm() {
+  form.errors = {};
+
   if (form.isSending) return;
 
-  if (!form.name || !form.email || !form.message) {
+  if (!form.name || !form.contact || !form.message) {
     emit("notify", "Please fill in all fields");
     return;
   }
 
-  if (!validateEmail(form.email)) {
-    emit("notify", "Please enter a valid email address");
+  const contactValidation = validateContact(form.contact);
+  if (!contactValidation.valid) {
+    if (form.contact.includes("@")) {
+      form.errors.contact = "Please enter a valid Gmail address (example@gmail.com)";
+    } else if (/^[0-9\s\+\-]+$/.test(form.contact)) {
+      form.errors.contact = "Please enter a valid phone number (9-11 digits)";
+    } else {
+      form.errors.contact = "Please enter a valid Gmail address or phone number";
+    }
     return;
   }
 
   form.isSending = true;
 
+  const contactLabel = contactValidation.type === "email" ? "📧 Email" : "📱 Telegram";
   const message = `
 📥 *New Portfolio Contact* 📥
 
 👤 *Name:* ${form.name}
-📧 *Email:* ${form.email}
+${contactLabel}:* ${form.contact}
 💬 *Message:* 
 ${form.message}
 
@@ -66,7 +86,8 @@ ${form.message}
       },
       body: JSON.stringify({
         name: form.name,
-        email: form.email,
+        contact: form.contact,
+        contactType: contactValidation.type,
         message: form.message,
       }),
     });
@@ -75,10 +96,10 @@ ${form.message}
 
     if (response.ok && data.success) {
       emit("notify", text(props.contact.form.successMessage));
-      // Reset form
       form.name = "";
-      form.email = "";
+      form.contact = "";
       form.message = "";
+      form.errors = {};
     } else {
       emit("notify", "Failed to send message. Please try again.");
     }
@@ -181,12 +202,15 @@ ${form.message}
         <label>
           <span>{{ text(contact.form.emailLabel) }}</span>
           <input
-            v-model="form.email"
-            type="email"
+            v-model="form.contact"
+            type="text"
             required
             :disabled="form.isSending"
-            placeholder="your@email.com"
+            :class="{ 'input-error': form.errors.contact }"
+            placeholder="your@gmail.com or phone number"
+            @input="form.errors.contact = ''"
           />
+          <span v-if="form.errors.contact" class="error-message">{{ form.errors.contact }}</span>
         </label>
         <label>
           <span>{{ text(contact.form.messageLabel) }}</span>
@@ -205,7 +229,7 @@ ${form.message}
         >
           <span class="text">{{
             form.isSending ? "Sending..." : text(contact.form.button)
-          }} <i class="fa-brands fa-telegram"></i> </span> 
+          }}</span> 
           <span class="circle"></span> 
         </button>
       </form>

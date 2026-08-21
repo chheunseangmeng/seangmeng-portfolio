@@ -47,9 +47,9 @@ export default async function handler(req, res) {
       .json({ error: "Too many requests. Please try again later." });
   }
 
-  const { name, email, message } = req.body;
+  const { name, contact, contactType, message } = req.body;
 
-  if (!name || !email || !message) {
+  if (!name || !contact || !message) {
     return res.status(400).json({ error: "Missing required fields" });
   }
 
@@ -59,12 +59,15 @@ export default async function handler(req, res) {
   if (!botToken || !chatId) {
     return res.status(500).json({ error: "Server configuration error" });
   }
+
+  const contactLabel = contactType === "email" ? "📧 Email" : "📱 Telegram";
   const text = `
 📥 *New Portfolio Contact* 📥
 
 👤 *Name:* ${name}
-📧 *Email:* ${email}
-💬 *Message:* ${message}
+${contactLabel}:* ${contact}
+💬 *Message:* 
+${message}
 
 📅 *Sent:* ${new Date().toLocaleString("en-US", {
     timeZone: "Asia/Phnom_Penh",
@@ -77,7 +80,6 @@ export default async function handler(req, res) {
     hour12: true,
   })}
   `;
-
   try {
     const response = await fetch(
       `https://api.telegram.org/bot${botToken}/sendMessage`,

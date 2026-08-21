@@ -381,7 +381,7 @@ export const portfolioData = {
     },
     form: {
       nameLabel: t("Your name", "ឈ្មោះរបស់អ្នក"),
-      emailLabel: t("Your email", "អ៊ីមែលរបស់អ្នក"),
+      emailLabel: t("Your contact", "ទំនាក់ទំនងរបស់អ្នក"),
       messageLabel: t("Your message", "សាររបស់អ្នក"),
       button: t("Send Message", "ដាក់ផ្ញើ"),
       successMessage: t(

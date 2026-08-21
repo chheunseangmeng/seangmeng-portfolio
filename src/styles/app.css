@@ -1236,6 +1236,23 @@ body {
   font-size: 0.85rem !important;
 }
 
+/* Error states for form inputs */
+.input-error {
+  border-color: #ef4444 !important;
+}
+
+.input-error:focus {
+  box-shadow: 0 0 0 2px rgba(239, 68, 68, 0.2) !important;
+}
+
+.contact-form label .error-message {
+  display: block;
+  font-size: 0.75rem;
+  color: #ef4444 !important;
+  margin-top: 0.25rem;
+  font-weight: 500;
+}
+
 /* Light mode form button */
 :root[data-theme="light"] .contact-form .animated-button {
   color: var(--accent);
