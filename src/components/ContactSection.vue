@@ -125,7 +125,7 @@ ${form.message}
         <p>{{ text(contact.invite.description) }}</p>
 
         <div class="contact-list">
-          <a class="contact-list__item" :href="`mailto:${contact.email}`">
+          <a class="contact-list__item contact-list__item--text" :href="`mailto:${contact.email}`">
             <span>
               <img 
                 src="https://cdn-icons-png.flaticon.com/128/732/732200.png" 

@@ -1124,6 +1124,16 @@ body {
   transform: translateX(5px);
 }
 
+.contact-list__item--text {
+  cursor: default;
+  user-select: text;
+}
+
+.contact-list__item--text:hover {
+  background: transparent;
+  transform: none;
+}
+
 .contact-list__item span {
   display: inline-flex;
   width: 2.5rem;
