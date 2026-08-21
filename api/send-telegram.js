@@ -59,7 +59,6 @@ export default async function handler(req, res) {
   if (!botToken || !chatId) {
     return res.status(500).json({ error: "Server configuration error" });
   }
-
   const text = `
 📥 *New Portfolio Contact* 📥
 
@@ -68,7 +67,16 @@ export default async function handler(req, res) {
 💬 *Message:* 
 ${message}
 
-📅 *Sent:* ${new Date().toLocaleString()}
+📅 *Sent:* ${new Date().toLocaleString("en-US", {
+    timeZone: "Asia/Phnom_Penh",
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+    hour: "2-digit",
+    minute: "2-digit",
+    second: "2-digit",
+    hour12: true,
+  })}
   `;
 
   try {
