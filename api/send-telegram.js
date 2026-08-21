@@ -64,8 +64,7 @@ export default async function handler(req, res) {
 
 👤 *Name:* ${name}
 📧 *Email:* ${email}
-💬 *Message:* 
-${message}
+💬 *Message:* ${message}
 
 📅 *Sent:* ${new Date().toLocaleString("en-US", {
     timeZone: "Asia/Phnom_Penh",
