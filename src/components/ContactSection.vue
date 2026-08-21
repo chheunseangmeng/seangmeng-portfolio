@@ -67,7 +67,7 @@ ${form.message}
       body: JSON.stringify({
         name: form.name,
         email: form.email,
-        message: message.trim(),
+        message: form.message,
       }),
     });
 
