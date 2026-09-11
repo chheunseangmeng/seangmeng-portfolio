@@ -91,7 +91,7 @@ export const portfolioData = {
           "ឆ្នាំនៃបទពិសោធន៍ក្នុងការសរសេរកូដ",
         ),
       },
-      { value: "10+", label: t("Company's Projects completed", "គម្រោងក្រុមហ៊ុនបានបញ្ចប់") },
+      { value: "4+", label: t("Company's Projects completed", "គម្រោងក្រុមហ៊ុនបានបញ្ចប់") },
       {
         value: "15+",
         label: t("Technologies explored", "បច្ចេកវិទ្យាដែលបានសិក្សា"),
@@ -103,7 +103,7 @@ export const portfolioData = {
       eyebrow: t("", ""),
       title: t("Technologies used", "បច្ចេកវិទ្យាដែលធ្លាប់បានប្រើ"),
       subtitle: t(
-        "I have been working with all of these technologies!",
+        "I work for real world project with all of these technologies everyday!",
         "ខ្ញុំបានធ្វើការជាមួយបច្ចេកវិទ្យាទាំងអស់នេះ!",
       ),
     },
@@ -154,6 +154,12 @@ export const portfolioData = {
             ],
           },
           {
+            name: "ReactJS",
+            icons: [
+              "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/960px-React-icon.svg.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail&_=20220125121207",
+            ],
+          },
+          {
             name: "Laravel",
             icons: [
               "https://img.icons8.com/?size=128&id=hUvxmdu7Rloj&format=png",
@@ -166,12 +172,6 @@ export const portfolioData = {
             ],
           },
           {
-            name: "Bootstrap",
-            icons: [
-              "https://img.icons8.com/?size=96&id=EzPCiQUqWWEa&format=png",
-            ],
-          },
-          {
             name: "Tailwind CSS",
             icons: [
               "https://img.icons8.com/?size=128&id=FnnFuAIw4e8j&format=png",
@@ -180,6 +180,12 @@ export const portfolioData = {
           {
             name: "Sass",
             icons: ["https://cdn-icons-png.flaticon.com/128/919/919831.png"],
+          },
+          {
+            name: "Bootstrap",
+            icons: [
+              "https://img.icons8.com/?size=96&id=EzPCiQUqWWEa&format=png",
+            ],
           },
         ],
       },
@@ -211,6 +217,7 @@ export const portfolioData = {
       "Postman",
       "SSMS",
       "SSRS",
+      "Firebase",
       "Prompt Engineering",
     ],
   },
@@ -225,7 +232,7 @@ export const portfolioData = {
     },
     items: [
        {
-        date: "2026 - Present",
+        date: "2026 - 2027",
         role: t("Bachelor Degree, Computer Science", "សិក្សាបរិញ្ញាបត្រផ្នែកវិទ្យាសាស្ត្រកុំព្យូទ័រ"),
         company: "AGA Institute",
         description: t(
@@ -281,7 +288,7 @@ export const portfolioData = {
     items: [
        {
         image: projectCodejor,
-        title: t("Code-Jor", "កូដជ័រ"),
+        title: t("Code-Jor", "កូដ-ជ័រ"),
         description: t(
           "A website that offer digital services such Website, Landing page, Web App, Poster Design, and Video editing.",
           "គេហទំព័រមួយដែលផ្តល់ជូននូវសេវាកម្មឌីជីថលដូចជា គេហទំព័រ ទំព័រផលិតផល កម្មវិធីគេហទំព័រ ការរចនាផ្ទាំងរូបភាព និងការកែសម្រួលវីដេអូ។",
