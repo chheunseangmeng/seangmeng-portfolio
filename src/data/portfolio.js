@@ -91,7 +91,7 @@ export const portfolioData = {
           "ឆ្នាំនៃបទពិសោធន៍ក្នុងការសរសេរកូដ",
         ),
       },
-      { value: "4+", label: t("Company's Projects completed", "គម្រោងក្រុមហ៊ុនបានបញ្ចប់") },
+      { value: "6+", label: t("Company's Projects completed", "គម្រោងក្រុមហ៊ុនបានបញ្ចប់") },
       {
         value: "15+",
         label: t("Technologies explored", "បច្ចេកវិទ្យាដែលបានសិក្សា"),
@@ -231,15 +231,6 @@ export const portfolioData = {
       ),
     },
     items: [
-       {
-        date: "2026 - 2027",
-        role: t("Bachelor Degree, Computer Science", "សិក្សាបរិញ្ញាបត្រផ្នែកវិទ្យាសាស្ត្រកុំព្យូទ័រ"),
-        company: "AGA Institute",
-        description: t(
-          "Computer Science student at AGA Institute, learning programming, software development, databases, networking, and web technologies through practical projects.",
-          "និស្សិតវិទ្យាសាស្ត្រកុំព្យូទ័រនៅវិទ្យាស្ថាន AGA សិក្សាពីការសរសេរកម្មវិធី ការអភិវឌ្ឍន៍កម្មវិធី មូលដ្ឋានទិន្នន័យ បណ្តាញ និងបច្ចេកវិទ្យាគេហទំព័រតាមរយៈគម្រោងជាក់ស្តែង។",
-        ),
-      },
       {
         date: "Feb 2026 - Present",
         role: t("Web Developer", "អ្នកអភិវឌ្ឍគេហទំព័រ"),
@@ -256,6 +247,15 @@ export const portfolioData = {
         description: t(
           "Responded to data requests and extracted warehouse information using SQL Server, SSMS, SSRS, SSIS, and Python.",
           "ឆ្លើយតបនឹងសំណើទិន្នន័យ និងស្រង់ព័ត៌មានពីឃ្លាំងទិន្នន័យដោយប្រើ SQL Server, SSMS, SSRS, SSIS និង Python។",
+        ),
+      },
+       {
+        date: "2026 - 2027",
+        role: t("Bachelor Degree, Computer Science", "សិក្សាបរិញ្ញាបត្រផ្នែកវិទ្យាសាស្ត្រកុំព្យូទ័រ"),
+        company: "AGA Institute",
+        description: t(
+          "Computer Science student at AGA Institute, learning programming, software development, databases, networking, and web technologies through practical projects.",
+          "និស្សិតវិទ្យាសាស្ត្រកុំព្យូទ័រនៅវិទ្យាស្ថាន AGA សិក្សាពីការសរសេរកម្មវិធី ការអភិវឌ្ឍន៍កម្មវិធី មូលដ្ឋានទិន្នន័យ បណ្តាញ និងបច្ចេកវិទ្យាគេហទំព័រតាមរយៈគម្រោងជាក់ស្តែង។",
         ),
       },
       {
