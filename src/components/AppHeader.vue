@@ -1,5 +1,6 @@
 <script setup>
 import { ref } from "vue";
+import diamondIcon from "../assets/diamond.webp";
 
 const props = defineProps({
   navItems: {
@@ -83,7 +84,19 @@ function toggleMusic() {
         :rel="item.id === 'services' ? 'noopener noreferrer' : undefined"
         @click.prevent="navigateTo(item)"
       >
-        {{ label(item) }}
+        <template v-if="item.id === 'services'">
+          <span class="site-nav__services">
+            {{ label(item) }}
+            <img
+              :src="diamondIcon"
+              alt=""
+              class="site-nav__icon"
+              width="14"
+              height="14"
+            />
+          </span>
+        </template>
+        <template v-else>{{ label(item) }}</template>
       </a>
     </nav>
 

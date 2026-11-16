@@ -263,6 +263,34 @@ body {
   color: var(--accent);
 }
 
+.site-nav__services {
+  position: relative;
+  display: inline-block;
+}
+
+.site-nav__icon {
+  position: absolute;
+  top: -6px;
+  right: -9px;
+  width: 14px;
+  height: 14px;
+  object-fit: contain;
+  pointer-events: none;
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.35));
+  animation: diamondBlink 2.5s step-end infinite;
+}
+
+@keyframes diamondBlink {
+  0%, 80% {
+    opacity: 1;
+    visibility: visible;
+  }
+  80.01%, 100% {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
 /* Active state - Glowing pill */
 .site-nav__link.is-active {
   color: var(--accent) !important;
@@ -882,6 +910,26 @@ body {
   aspect-ratio: 16 / 10;
   overflow: hidden;
   flex-shrink: 0;
+}
+
+.project-card__ribbon {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  z-index: 100;
+  background: #e53935;
+  color: #fff;
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  padding: 0.25rem 0.6rem;
+  border-radius: 4px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  pointer-events: none;
+  white-space: nowrap;
+  display: inline-block;
+  opacity: 1;
+  visibility: visible;
 }
 
 .project-card__media img {

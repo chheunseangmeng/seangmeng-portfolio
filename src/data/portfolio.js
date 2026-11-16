@@ -3,6 +3,7 @@ import projectQr from "../assets/poster.webp";
 import projectInventory from "../assets/vc-png.webp";
 import projectiTCare from "../assets/itcare.webp";
 import projectCodejor from "../assets/codejor.webp";
+import projectStylePOS from "../assets/POS_Checkout.webp";
 import galleryAchievement from "../assets/image/Achievement.webp";
 import galleryCameraman from "../assets/image/Camerman.webp";
 import galleryExchangeProgram from "../assets/image/exchange program.webp";
@@ -45,7 +46,7 @@ export const portfolioData = {
       "ខ្ញុំបម្លែងគំនិតទៅជាបទពិសោធន៍គេហទំព័រដែលរលូន មានរចនាសម្ព័ន្ធច្បាស់លាស់ អន្តរកម្មល្អ និងគំនិតវិស្វកម្មដែលអាចអនុវត្តបាន។",
     ),
     primaryCta: t("Start a Project", "ចាប់ផ្តើមគម្រោង"),
-    secondaryCta: t("Download CV", "ទាញយកប្រវត្តិរូប"),
+    secondaryCta: t("View My CV", "មើលប្រវត្តិរូប"),
     cvUrl: "/Chheun_Seangmeng_CV.pdf",
     image: profileImage,
     floatingSkills: [
@@ -286,6 +287,18 @@ export const portfolioData = {
       "គម្រោងនេះមិនទាន់បានបង្ហោះនៅឡើយទេ",
     ),
     items: [
+         {
+        image: projectStylePOS,
+        title: t("StylePOS", "ប្រព័ន្ធ POS"),
+        description: t(
+          "A web application that focusing on Point Of Sale(POS) system, which's match with many products of sale.",
+          "កម្មវិធីគេហទំព័រ ដែលផ្ដោតលើការលក់ ប្រព័ន្ធគ្រប់គ្រងនេះអាចសមស្របជាមួយការលក់នូវផលិតផលផ្សេងៗទៀតផងដែរ",
+        ),
+        tags: ["PHP", "React JS", "MySQL", "MVC"],
+        cta: t("Open Demo", "បើក Demo"),
+        url: "",
+        id: "project-stylepos",
+      },
        {
         image: projectCodejor,
         title: t("Code-Jor", "កូដ-ជ័រ"),
@@ -296,6 +309,7 @@ export const portfolioData = {
         tags: ["React JS", "JSON Data"],
         cta: t("Open Demo", "បើក Demo"),
         url: "https://codejor.vercel.app/",
+        id: "project-codejor",
       },
       {
         image: projectiTCare,
@@ -307,6 +321,7 @@ export const portfolioData = {
         tags: ["Vue3", "Node JS & Express", "MySQL"],
         cta: t("Open Demo", "បើក Demo"),
         url: "https://itcaree.netlify.app/",
+        id: "project-itcare",
       },
       {
         image: projectQr,
@@ -315,9 +330,10 @@ export const portfolioData = {
           "A digital restaurant menu system for browsing dishes, viewing details, and placing orders easily.",
           "ប្រព័ន្ធមឺនុយភោជនីយដ្ឋានឌីជីថលដែលបង្កើតដោយ Flutter និង Laravel។",
         ),
-        tags: ["Flutter", "Laravel", "MySQL"],
+        tags: ["Flutter", "Laravel", "MySQL", "MVC"],
         cta: t("View Project", "មើលគម្រោង"),
         url: "",
+        id: "project-qr-menu",
       },
       {
         image: projectInventory,
@@ -326,9 +342,10 @@ export const portfolioData = {
           "A business-oriented inventory management solution with structured workflows.",
           "ដំណោះស្រាយគ្រប់គ្រងសារពើភ័ណ្ឌសម្រាប់អាជីវកម្មជាមួយលំហូរការងារដែលមានរចនាសម្ព័ន្ធ។",
         ),
-        tags: ["PHP", "JavaScript", "MySQL", "Bootstrap"],
+        tags: ["PHP", "JavaScript", "MySQL", "MVC"],
         cta: t("View Project", "មើលគម្រោង"),
         url: "",
+        id: "project-inventory",
       },
     ],
   },
@@ -399,7 +416,7 @@ export const portfolioData = {
     email: "mengfreelancer@gmail.com",
     location: "Phnom Penh, Cambodia",
     socials: [
-      { label: "GitHub", url: "https://github.com/chheunseangmeng" },
+      { label: "GitHub", url: "" },
       {
         label: "LinkedIn",
         url: "https://www.linkedin.com/in/seangmeng-chheun-60923133b",

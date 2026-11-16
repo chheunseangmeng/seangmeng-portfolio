@@ -18,6 +18,8 @@ const props = defineProps({
 
 const text = (value) => value[props.locale] || value.en;
 
+const notDeployedLabel = { en: "Local Only", km: "មូលដ្ឋានតែប៉ុណ្ណោះ" };
+
 function handleProjectAction(project) {
   if (project.url) {
     window.open(project.url, "_blank", "noopener,noreferrer");
@@ -51,9 +53,10 @@ function handleProjectAction(project) {
       <p class="projects-merge__subtitle" data-reveal="up">{{ text(projects.heading.subtitle) }}</p>
 
       <div class="project-grid">
-        <article v-for="project in projects.items" :key="project.title.en" class="project-card" data-reveal="up">
+        <article v-for="project in projects.items" :key="project.title.en" class="project-card" :id="project.url ? undefined : project.id" data-reveal="up">
           <div class="project-card__media">
             <img :src="project.image" :alt="text(project.title)" loading="lazy" decoding="async" />
+            <span v-if="!project.url" class="project-card__ribbon">{{ text(notDeployedLabel) }}</span>
             <button 
               class="animated-button project-card__action" 
               type="button" 
@@ -124,6 +127,29 @@ function handleProjectAction(project) {
   aspect-ratio: 16 / 10;
   overflow: hidden;
   flex-shrink: 0;
+}
+
+.project-card__ribbon {
+  position: absolute;
+  top: 14%;
+  right: -24px;
+  z-index: 100;
+  background: #e53935;
+  color: #fff;
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  padding: 0.25rem 0;
+  width: 110px;
+  text-align: center;
+  transform: translateY(-50%) rotate(45deg);
+  transform-origin: center center;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  pointer-events: none;
+  white-space: nowrap;
+  display: inline-block;
+  opacity: 1;
+  visibility: visible;
 }
 
 .project-card__media img {
