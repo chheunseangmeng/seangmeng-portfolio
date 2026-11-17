@@ -4,6 +4,9 @@ import projectInventory from "../assets/vc-png.webp";
 import projectiTCare from "../assets/itcare.webp";
 import projectCodejor from "../assets/codejor.webp";
 import projectStylePOS from "../assets/POS_Checkout.webp";
+import projectRestaurant from "../assets/restaurant.webp";
+import projectAttandance from "../assets/attandance.webp";
+import projectMenuDigital from "../assets/menu_digital.webp";
 import galleryAchievement from "../assets/image/Achievement.webp";
 import galleryCameraman from "../assets/image/Camerman.webp";
 import galleryExchangeProgram from "../assets/image/exchange program.webp";
@@ -298,6 +301,18 @@ export const portfolioData = {
         cta: t("Open Demo", "បើក Demo"),
         url: "",
         id: "project-stylepos",
+      },
+        {
+        image: projectAttandance,
+        title: t("Attendance Bot", "ប្រព័ន្ធតាមដានអវត្តមាន"),
+        description: t(
+          "A telegram bot which tracking staff arrived office or not. Bot track Check-In, Check-Out with real time.",
+          "Bot នៅលើ Telegram សម្រាប់តាមដានថាតើបុគ្គលិកបានមកដល់ការិយាល័យឬអត់។ Bot នេះអាចតាមដានការមកដល់ (Check-In) និងការចាក់ចេញ (Check-Out) បានភ្លាមៗ​។",
+        ),
+        tags: ["Python", "MySQL", "Telegram Bot"],
+        cta: t("View Project", "មើលគម្រោង"),
+        url: "",
+        id: "project-attendance",
       },
        {
         image: projectCodejor,
